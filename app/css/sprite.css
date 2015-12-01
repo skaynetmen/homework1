@@ -1,0 +1,130 @@
+.icon {
+    background: url('../img/spritesheet.png') no-repeat;
+    display: block;
+}
+
+.ico-auth-email {
+    width: 23px;
+    height: 17px;
+    background-position: -5px -5px;
+}
+
+.ico-auth-key {
+    width: 22px;
+    height: 20px;
+    background-position: -38px -5px;
+}
+
+.ico-case {
+    width: 54px;
+    height: 55px;
+    background-position: -70px -5px;
+}
+
+.ico-contact-arrow {
+    width: 10px;
+    height: 38px;
+    background-position: -134px -5px;
+}
+
+.ico-diploma {
+    width: 54px;
+    height: 55px;
+    background-position: -154px -5px;
+}
+
+.ico-email {
+    width: 17px;
+    height: 13px;
+    background-position: -5px -70px;
+}
+
+.ico-facebook {
+    width: 42px;
+    height: 44px;
+    background-position: -32px -70px;
+}
+
+.ico-facebook:hover {
+    width: 42px;
+    height: 44px;
+    background-position: -84px -70px;
+}
+
+.ico-github {
+    width: 42px;
+    height: 44px;
+    background-position: -136px -70px;
+}
+
+.ico-github:hover {
+    width: 42px;
+    height: 44px;
+    background-position: -5px -124px;
+}
+
+.ico-graguete {
+    width: 54px;
+    height: 55px;
+    background-position: -57px -124px;
+}
+
+.ico-locked {
+    width: 19px;
+    height: 22px;
+    background-position: -188px -70px;
+}
+
+.ico-phone {
+    width: 17px;
+    height: 22px;
+    background-position: -188px -102px;
+}
+
+.ico-pic {
+    width: 54px;
+    height: 55px;
+    background-position: -121px -124px;
+}
+
+.ico-school {
+    width: 54px;
+    height: 55px;
+    background-position: -218px -5px;
+}
+
+.ico-skype {
+    width: 20px;
+    height: 20px;
+    background-position: -217px -70px;
+}
+
+.ico-twitter {
+    width: 42px;
+    height: 44px;
+    background-position: -217px -100px;
+}
+
+.ico-twitter:hover {
+    width: 42px;
+    height: 44px;
+    background-position: -185px -154px;
+}
+
+.ico-unlocked {
+    width: 24px;
+    height: 22px;
+    background-position: -237px -154px;
+}
+
+.ico-vk {
+    width: 42px;
+    height: 44px;
+    background-position: -5px -186px;
+}
+
+.ico-vk:hover {
+    width: 42px;
+    height: 44px;
+    background-position: -237px -186px;
+}
