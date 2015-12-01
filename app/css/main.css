@@ -371,7 +371,9 @@ p {
 }
 
 .info__photo-img {
-    width: 100%;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .info__list {
