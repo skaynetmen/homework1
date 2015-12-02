@@ -11,4 +11,3 @@ $ bower install
 $ gulp build
 $ cd dist
 ```
-
