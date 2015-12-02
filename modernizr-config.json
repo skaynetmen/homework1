@@ -1,0 +1,17 @@
+{
+  "minify": true,
+  "options": [
+    "html5shiv",
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/css/boxshadow",
+    "test/css/boxsizing",
+    "test/css/opacity",
+    "test/css/rgba",
+    "test/css/textshadow",
+    "test/css/transforms",
+    "test/css/transitions",
+    "test/forms/placeholder"
+  ]
+}

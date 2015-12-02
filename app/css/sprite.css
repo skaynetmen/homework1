@@ -3,34 +3,40 @@
     display: block;
 }
 
+.ico-auth-arrow {
+    width: 11px;
+    height: 40px;
+    background-position: -5px -5px;
+}
+
 .ico-auth-email {
     width: 23px;
     height: 17px;
-    background-position: -5px -5px;
+    background-position: -26px -5px;
 }
 
 .ico-auth-key {
     width: 22px;
     height: 20px;
-    background-position: -38px -5px;
+    background-position: -59px -5px;
 }
 
 .ico-case {
     width: 54px;
     height: 55px;
-    background-position: -70px -5px;
+    background-position: -91px -5px;
 }
 
 .ico-contact-arrow {
     width: 10px;
     height: 38px;
-    background-position: -134px -5px;
+    background-position: -155px -5px;
 }
 
 .ico-diploma {
     width: 54px;
     height: 55px;
-    background-position: -154px -5px;
+    background-position: -175px -5px;
 }
 
 .ico-email {
@@ -60,71 +66,83 @@
 .ico-github:hover {
     width: 42px;
     height: 44px;
-    background-position: -5px -124px;
+    background-position: -188px -70px;
 }
 
 .ico-graguete {
     width: 54px;
     height: 55px;
-    background-position: -57px -124px;
+    background-position: -5px -124px;
 }
 
 .ico-locked {
     width: 19px;
     height: 22px;
-    background-position: -188px -70px;
+    background-position: -69px -124px;
 }
 
 .ico-phone {
     width: 17px;
     height: 22px;
-    background-position: -188px -102px;
+    background-position: -98px -124px;
 }
 
 .ico-pic {
     width: 54px;
     height: 55px;
-    background-position: -121px -124px;
+    background-position: -125px -124px;
+}
+
+.ico-pic-hover {
+    width: 54px;
+    height: 55px;
+    background-position: -239px -5px;
 }
 
 .ico-school {
     width: 54px;
     height: 55px;
-    background-position: -218px -5px;
+    background-position: -240px -70px;
 }
 
 .ico-skype {
     width: 20px;
     height: 20px;
-    background-position: -217px -70px;
+    background-position: -189px -135px;
+}
+
+.ico-tooltip-arrow {
+    width: 7px;
+    height: 12px;
+    background-position: -219px -135px;
 }
 
 .ico-twitter {
     width: 42px;
     height: 44px;
-    background-position: -217px -100px;
+    background-position: -236px -135px;
 }
 
 .ico-twitter:hover {
     width: 42px;
     height: 44px;
-    background-position: -185px -154px;
+    background-position: -5px -189px;
 }
 
 .ico-unlocked {
     width: 24px;
     height: 22px;
-    background-position: -237px -154px;
+    background-position: -57px -189px;
 }
 
 .ico-vk {
     width: 42px;
     height: 44px;
-    background-position: -5px -186px;
+    background-position: -91px -189px;
 }
 
 .ico-vk:hover {
     width: 42px;
     height: 44px;
-    background-position: -237px -186px;
+    background-position: -143px -189px;
 }

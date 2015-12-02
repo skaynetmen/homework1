@@ -6,7 +6,8 @@ var gulp = require("gulp"),
     minifyCss = require('gulp-minify-css'),
     gulpIf = require('gulp-if'),
     imagemin = require('gulp-imagemin'),
-    del = require('del');
+    rimraf = require('rimraf'),
+    modernizr = require('gulp-modernizr');
 
 gulp.task('server', function () {
     browserSync.init({
@@ -26,33 +27,41 @@ gulp.task('watch', function () {
 });
 
 gulp.task('assets', function () {
-    var assets = useref.assets();
-
     return gulp.src('app/*.html')
-        .pipe(assets)
+        .pipe(useref())
 
         .pipe(gulpIf('*.css', autoprefixer()))
         .pipe(gulpIf('*.css', minifyCss()))
 
         .pipe(gulpIf('*.js', uglify()))
-        .pipe(assets.restore())
-        .pipe(useref())
         .pipe(gulp.dest('dist/'))
 });
 
 gulp.task('images', function () {
-    return gulp.src('app/img/*.+(png|jpg|jpeg|gif|svg)')
+    return gulp.src('app/img/**/*.+(png|jpg|jpeg|gif|svg)')
         .pipe(imagemin({
             interlaced: true
         }))
         .pipe(gulp.dest('dist/img/'))
 });
 
-gulp.task('clean', function () {
-    del('dist');
+gulp.task('fonts', function () {
+    return gulp.src('app/fonts/**/*.+(eot|svg|ttf|woff|woff2)')
+        .pipe(gulp.dest('dist/fonts'))
 });
 
-gulp.task('build', ['clean', 'assets', 'images'], function () {
+gulp.task('modernizr', function () {
+    return gulp.src('app/js/modernizr.js')
+        .pipe(modernizr())
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('clean', function (cb) {
+    rimraf('dist', cb);
+});
+
+gulp.task('build', ['clean', 'assets', 'images', 'fonts', 'modernizr'], function () {
     console.log('Building files');
 });
 
