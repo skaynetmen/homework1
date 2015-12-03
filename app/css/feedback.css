@@ -3,7 +3,7 @@
 }
 
 .feedback {
-    padding: 0 81px;
+    /*padding: 0 81px;*/
 }
 
 .form {
@@ -251,4 +251,30 @@ textarea.form__input {
 
 .hidden {
     display: none !important;
+}
+
+/*Адаптив*/
+/*мобильные*/
+@media (max-width: 767px) {
+    .disable-float .form__col {
+        float: none;
+        padding-right: 0;
+        width: auto;
+        margin-bottom: 15px;
+    }
+
+    .disable-float .form__col:last-child {
+        padding-left: 0;
+    }
+
+    .disable-float .disable-margin {
+        margin-bottom: 0;
+    }
+}
+
+/*планшеты*/
+@media (min-width: 768px) {
+    .feedback {
+        padding: 0 81px;
+    }
 }
