@@ -57,11 +57,16 @@ gulp.task('modernizr', function () {
         .pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('favicon', function () {
+    return gulp.src('app/favicon.+(ico|png)')
+        .pipe(gulp.dest('dist/'))
+});
+
 gulp.task('clean', function (cb) {
     rimraf('dist', cb);
 });
 
-gulp.task('build', ['clean', 'assets', 'images', 'fonts', 'modernizr'], function () {
+gulp.task('build', ['clean', 'assets', 'images', 'fonts', 'modernizr', 'favicon'], function () {
     console.log('Building files');
 });
 
