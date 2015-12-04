@@ -203,7 +203,7 @@ textarea.form__input {
 .tooltip {
     position: absolute;
     padding: 5px 8px;
-    height: 27px;
+    /*height: 27px;*/
     top: 50%;
     right: 0;
     background: #f3a287;

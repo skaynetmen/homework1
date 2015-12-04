@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'open_sansregular', 'Open Sans Regular', sans-serif;
     font-size: 16px;
@@ -13,6 +17,13 @@ body {
 }
 
 .bg {
+    position: relative;
+    overflow: auto;
+}
+
+.bg:before {
+    content: ' ';
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -20,14 +31,12 @@ body {
     bottom: 0;
     background: url("../img/bg.jpg") center center repeat;
     background-size: cover;
-    overflow: auto;
-    min-width: 320px;
 }
 
 .wrapper {
     position: relative;
     min-height: 100%;
-    /*min-width: 1200px;*/
+    /*min-width: 320px;*/
     height: auto !important;
 }
 
@@ -81,6 +90,12 @@ p {
 .header .logo {
     top: 10px;
     left: 10px;
+}
+
+.logo__img {
+    display: block;
+    width: 95px;
+    height: 71px;
 }
 
 .header .socials {
@@ -424,12 +439,11 @@ p {
 }
 
 .info__list-question {
-    margin-right: 8px;
-
     font-family: 'open_sanssemibold', 'Open Sans Semibold', sans-serif;
 }
 
 .info__list-response {
+    margin-left: 8px;
     /*max-width: 228px;*/
 }
 
@@ -568,6 +582,7 @@ p {
 
 /*Footer*/
 .footer {
+    position: relative;
     padding: 19px 0 23px;
     margin-top: -61px;
     /*min-width: 1200px;*/
@@ -670,7 +685,7 @@ p {
     }
 
     .skills {
-        margin: -3px 0 0 5px;
+        margin: -2px 0 0 5px;
     }
 
     .section__list-item-icon {
@@ -690,7 +705,7 @@ p {
     }
 
     .copyright {
-        font-size: 0.875em;
+        font-size: 10px;
     }
 }
 
@@ -735,15 +750,12 @@ p {
         padding: 0 168px;
     }
 
-    .login {
-        margin-right: 59px;
-    }
-
     .copyright {
+        margin-left: 62px;
         max-width: 830px;
         float: left;
 
-        font-size: 0.75em;
+        font-size: 12px;
         text-align: left;
         white-space: nowrap;
         text-overflow: ellipsis;

@@ -18,7 +18,7 @@
 .works__item {
     display: block;
     padding: 0;
-    margin-bottom: 34px;
+    margin-bottom: 32px;
 
     vertical-align: top;
     font-size: 16px;
@@ -46,7 +46,7 @@
 }
 
 .work:hover .work__hover {
-    background-color: rgba(111, 109, 109, 0);
+    display: block;
 }
 
 .work__preview,
@@ -71,11 +71,25 @@
 
 .work__hover {
     position: absolute;
+    display: none;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     background-color: rgba(111, 109, 109, 0.41);
+}
+
+.work__hover-title {
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    font-size: 0.875em;
+    color: #FFFFFF;
+    text-align: center;
 }
 
 .work__header {
@@ -149,13 +163,14 @@
 /*планшеты*/
 @media (min-width: 768px) {
     .works {
-        margin-right: -75px;
+        margin-left: -75px;
     }
 
     .works__item {
         display: inline-block;
-        margin-right: 75px;
+        margin-left: 75px;
     }
+
 
     .work {
         margin-left: 0;
@@ -166,7 +181,7 @@
 /*пк*/
 @media (min-width: 1200px) {
     .works {
-        margin-right: -32px;
+        margin-left: -32px;
     }
 
     .works__list {
@@ -175,6 +190,6 @@
 
     .works__item {
         display: inline-block;
-        margin-right: 32px;
+        margin-left: 32px;
     }
 }
