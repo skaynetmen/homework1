@@ -39,6 +39,11 @@
     <!--build:css css/feedback.min.css-->
     <link rel="stylesheet" href="css/feedback.css"/>
     <!--endbuild-->
+    <!--build:css css/ie.min.css-->
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="css/ie.css"/>
+    <![endif]-->
+    <!--endbuild-->
     <script src="js/modernizr.js"></script>
     <!--build:js js/html5shiv.min.js-->
     <!--[if lt IE 9]>
@@ -88,65 +93,6 @@
 
         <main class="main">
             <div class="container clearfix">
-                <aside class="sidebar">
-                    <nav class="sidebar__block">
-                        <ul class="menu">
-                            <li class="menu__item">
-                                <a href="./index.html" class="menu__link">Обо мне</a>
-                            </li>
-                            <li class="menu__item">
-                                <a href="/works.html" class="menu__link">Мои работы</a>
-                            </li>
-                            <li class="menu__item active">
-                                <a href="/feedback.html" class="menu__link">Обратная связь</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <div class="sidebar__block">
-                        <div class="contacts">
-                            <div class="contacts__header">
-                                <h3 class="contacts__title">Контакты</h3>
-                            </div>
-
-                            <div class="contacts__body">
-                                <ul class="contacts__list">
-                                    <li class="contacts__item">
-                                        <a href="mailto:pochta@mail.ru" class="contacts__link">
-                                                <span class="contacts__icon">
-                                                    <span class="icon ico-email"></span>
-                                                </span>
-                                                <span class="contacts__desc">
-                                                    pochta@mail.ru
-                                                </span>
-                                        </a>
-                                    </li>
-                                    <li class="contacts__item">
-                                        <a href="tel:+79181234567" class="contacts__link">
-                                                <span class="contacts__icon">
-                                                    <span class="icon ico-phone"></span>
-                                                </span>
-                                                <span class="contacts__desc">
-                                                    +79181234567
-                                                </span>
-                                        </a>
-                                    </li>
-                                    <li class="contacts__item">
-                                        <a href="skype:nickname" class="contacts__link">
-                                                <span class="contacts__icon">
-                                                    <span class="icon ico-skype"></span>
-                                                </span>
-                                                <span class="contacts__desc">
-                                                    nickname
-                                                </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-
                 <div class="content">
                     <section class="section">
                         <div class="section__header">
@@ -210,6 +156,66 @@
                     <!-- ./напишите мне-->
                 </div>
                 <!-- ./content-->
+
+                <aside class="sidebar">
+                    <nav id="menu" class="sidebar__block sidebar__menu">
+                        <ul class="menu">
+                            <li class="menu__item">
+                                <a href="./index.html" class="menu__link">Обо мне</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="/works.html" class="menu__link">Мои работы</a>
+                            </li>
+                            <li class="menu__item active">
+                                <a href="/feedback.html" class="menu__link">Обратная связь</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="sidebar__block">
+                        <div class="contacts">
+                            <div class="contacts__header">
+                                <h3 class="contacts__title">Контакты</h3>
+                            </div>
+
+                            <div class="contacts__body">
+                                <ul class="contacts__list">
+                                    <li class="contacts__item">
+                                        <a href="mailto:pochta@mail.ru" class="contacts__link">
+                                                <span class="contacts__icon">
+                                                    <span class="icon ico-email"></span>
+                                                </span>
+                                                <span class="contacts__desc">
+                                                    pochta@mail.ru
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="contacts__item">
+                                        <a href="tel:+79181234567" class="contacts__link">
+                                                <span class="contacts__icon">
+                                                    <span class="icon ico-phone"></span>
+                                                </span>
+                                                <span class="contacts__desc">
+                                                    +79181234567
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="contacts__item">
+                                        <a href="skype:nickname" class="contacts__link">
+                                                <span class="contacts__icon">
+                                                    <span class="icon ico-skype"></span>
+                                                </span>
+                                                <span class="contacts__desc">
+                                                    nickname
+                                                </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <!-- ./sidebar-->
             </div>
             <!-- ./container-->
         </main>
@@ -227,5 +233,9 @@
             </div>
         </div>
     </footer>
+    <!--build:js js/main.min.js-->
+    <script src="bower/jquery/dist/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <!--endbuild-->
 </body>
 </html>

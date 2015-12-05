@@ -1,0 +1,7 @@
+.bg {
+    background: #75A492;
+}
+
+.bg:before {
+    background: transparent;
+}
