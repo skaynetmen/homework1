@@ -256,7 +256,7 @@ textarea.form__input {
 
 /*Адаптив*/
 /*мобильные*/
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
     .disable-float .form__col {
         float: none;
         padding-right: 0;
@@ -274,7 +274,7 @@ textarea.form__input {
 }
 
 /*планшеты*/
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .feedback {
         padding: 0 81px;
     }

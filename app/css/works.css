@@ -161,7 +161,7 @@
 
 /*Адаптив*/
 /*планшеты*/
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .works {
         margin-left: -75px;
     }
@@ -179,7 +179,7 @@
 }
 
 /*пк*/
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     .works {
         margin-left: -32px;
     }

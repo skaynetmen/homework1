@@ -29,7 +29,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("../img/bg.jpg") center center repeat;
+    background: url("../img/bg.jpg") no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
 }
 
@@ -667,7 +670,7 @@ p {
 
 /*Адаптив*/
 /*планшеты*/
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .container {
         padding-left: 60px;
         padding-right: 60px;
@@ -734,7 +737,7 @@ p {
 }
 
 /*пк*/
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     .wrapper {
         min-width: 1210px;
     }
