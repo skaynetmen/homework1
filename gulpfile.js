@@ -58,7 +58,7 @@ gulp.task('modernizr', function () {
 });
 
 gulp.task('favicon', function () {
-    return gulp.src('app/favicon.+(ico|png)')
+    return gulp.src('app/*.+(ico|png)')
         .pipe(gulp.dest('dist/'))
 });
 

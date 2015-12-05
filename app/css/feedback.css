@@ -128,7 +128,8 @@ textarea.form__input {
 }
 
 .form__btn {
-    height: 39px;
+    display: inline-block;
+    min-height: 39px;
     padding: 11px 22px;
     background: #ffffff;
     background: -moz-linear-gradient(top, #ffffff 0%, #fbf9f9 6%, #e9e6e4 100%);

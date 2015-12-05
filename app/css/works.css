@@ -49,6 +49,10 @@
     display: block;
 }
 
+.work:hover .work__title {
+    text-decoration: underline;
+}
+
 .work__preview,
 .work__img,
 .work__hover {
@@ -92,20 +96,16 @@
     text-align: center;
 }
 
-.work__header {
-    background-color: #f2f2f2;
-    padding: 10px;
-
-    text-align: center;
-}
-
 .work__title {
     margin: 0;
+    background-color: #f2f2f2;
+    padding: 10px;
 
     font-family: 'open_sanssemibold', 'Open Sans Semibold', sans-serif;
     font-size: 0.834375em;
     line-height: 1;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    text-align: center;
 }
 
 .work__desc {
