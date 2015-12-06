@@ -114,7 +114,9 @@
 }
 
 .form__btn {
-    height: 39px;
+    display: inline-block;
+    min-height: 39px;
+    max-width: 100%;
     padding: 11px 22px;
     background: #ffffff;
     background: -moz-linear-gradient(top, #ffffff 0%, #fbf9f9 6%, #e9e6e4 100%);
@@ -132,6 +134,7 @@
     line-height: 1;
     color: #727070;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    word-wrap: break-word;
 }
 
 .form__btn:hover {

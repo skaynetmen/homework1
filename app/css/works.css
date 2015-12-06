@@ -43,6 +43,7 @@
 
     color: #727070;
     text-decoration: none;
+    word-wrap: break-word;
 }
 
 .work:hover .work__hover {
