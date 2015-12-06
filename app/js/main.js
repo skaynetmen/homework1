@@ -1,4 +1,8 @@
 var app = (function ($) {
+    var options = {
+        fixedMenu: false
+    };
+
     var mobileMenu = function () {
         (function () {
             $('<div/>', {'id': 'menuOverlay', 'class': 'menuOverlay'})
@@ -9,6 +13,11 @@ var app = (function ($) {
             menu = $('#menu'),
             mobileMenuBtn = $('#mobileMenu'),
             menuOverlay = $('#menuOverlay');
+
+        if (options.fixedMenu) {
+            $("<style>.showMenu {position: fixed;}</style>")
+                .appendTo("head");
+        }
 
         mobileMenuBtn.on('click', function () {
             menu.toggleClass('showMenu');
@@ -26,11 +35,45 @@ var app = (function ($) {
         })
     };
 
+    var fixedMenu = function () {
+        var
+            win = $(window),
+            header = $('#header'),
+            headerTop = header.offset().top;
+
+        win.scroll(function () {
+            if (headerTop < win.scrollTop()) {
+                header.addClass('affix');
+            }
+            else {
+                header.removeClass('affix');
+            }
+        });
+    };
+
+    var changeOptions = function (param) {
+        if (typeof param == 'object') {
+            if (param.fixedMenu === true) {
+                options.fixedMenu = true;
+            }
+        }
+    };
+
     return {
-        init: function () {
+        init: function (param) {
+            if (param) {
+                changeOptions(param);
+            }
+
             mobileMenu();
+
+            if (options.fixedMenu) {
+                fixedMenu();
+            }
         }
     };
 })(window.jQuery);
 
-app.init();
+app.init({
+    fixedMenu: false
+});
