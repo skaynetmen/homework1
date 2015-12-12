@@ -181,7 +181,7 @@
                                         </a>
                                     </li>
                                     <li class="works__item">
-                                        <a href="#" class="work add">
+                                        <a id="addWork" href="#" class="work add">
                                             <div class="work__add-img">
                                                 <span class="icon ico-pic"></span>
                                             </div>
@@ -272,9 +272,78 @@
             </div>
         </div>
     </footer>
+
+    <div id="modalAddWork" class="modal">
+        <div class="modal__wrapper">
+            <h4 class="modal__title">Добавление проекта</h4>
+
+            <div class="modal__body">
+                <button class="modal__close">&times;</button>
+                <div id="modalMsg">
+                    <div class="alert error">
+                        <button class="alert__close">&times;</button>
+                        <h4 class="alert__title">Ошибка!</h4>
+
+                        <p>Невозможно добавить проект.</p>
+                    </div>
+                </div>
+                <form id="formAddWork" action="#" method="post" enctype="multipart/form-data">
+                    <div class="form__group">
+                        <label for="projectName" class="form__label">Название проекта</label>
+
+                        <div class="form__input-section">
+                            <input type="text" id="projectName" name="name" class="form__input"
+                                   placeholder="Введите название"/>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label for="projectImg" class="form__label">Картинка проекта</label>
+
+                        <div class="form__input-section">
+                            <input type="file" id="projectImg" name="img" class="hidden"/>
+
+                            <div class="form__input-group">
+                                <input type="text" id="fakeProjectImg" name="fakeImg" class="form__input"
+                                       placeholder="Загрузите изображение" readonly/>
+                                <span class="form__input-group-btn">
+                                    <button id="fakeInputFile" type="button" class="form__btn"><i
+                                            class="icon ico-skype"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label for="projectUrl" class="form__label">URL проекта</label>
+
+                        <div class="form__input-section">
+                            <input type="text" id="projectUrl" name="url" class="form__input"
+                                   placeholder="Добавьте ссылку"/>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label for="projectDesc" class="form__label">Описание</label>
+
+                        <div class="form__input-section">
+                            <textarea id="projectDesc" name="desc" class="form__input"
+                                      placeholder="Пара слов"></textarea>
+                        </div>
+                    </div>
+                    <div class="form__footer">
+                        <button type="submit" class="form__btn primary">Добавить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!--build:js js/main.min.js-->
     <script src="bower/jquery/dist/jquery.min.js"></script>
+    <script src="js/skValidator.js"></script>
+    <script src="js/skModal.js"></script>
     <script src="js/main.js"></script>
+    <!--endbuild-->
+    <!--build:js js/works.min.js-->
+    <script src="js/works.js"></script>
     <!--endbuild-->
 </body>
 </html>

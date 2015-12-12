@@ -1,4 +1,6 @@
-var app = (function ($) {
+var APP = (function ($) {
+    'use strict';
+
     var options = {
         fixedMenu: false
     };
@@ -74,6 +76,6 @@ var app = (function ($) {
     };
 })(window.jQuery);
 
-app.init({
+APP.init({
     fixedMenu: false
 });

@@ -104,30 +104,34 @@
 
                         <div class="section__body">
                             <div id="feedback" class="feedback">
-                                <form action="feedback.html" class="form" method="post">
+                                <form id="feedbackForm" action="feedback.html" class="form" method="post">
                                     <div class="form__group clearfix disable-float">
                                         <div class="form__col">
                                             <label class="form__label" for="name">Имя</label>
 
                                             <div class="form__input-section">
-                                                <input type="text" id="name" class="form__input error"
+                                                <input type="text" id="name" name="name" class="form__input"
                                                        placeholder="Как к Вам обращаться"/>
-                                                <span class="tooltip left">введите имя</span>
+                                                <!--<span class="tooltip left">введите имя</span>-->
                                             </div>
                                         </div>
                                         <div class="form__col disable-margin">
                                             <label class="form__label" for="email">Email</label>
 
                                             <div class="form__input-section">
-                                                <input type="email" id="email" class="form__input error"
+                                                <input type="text" id="email" name="email" class="form__input"
                                                        placeholder="Куда мне писать"/>
-                                                <span class="tooltip">введите email</span>
+                                                <!--<span class="tooltip">введите email</span>-->
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form__group">
                                         <label class="form__label">Сообщение</label>
-                                        <textarea class="form__input" placeholder="Кратко в чем суть"></textarea>
+
+                                        <div class="form__input-section">
+                                            <textarea class="form__input" name="message"
+                                                      placeholder="Кратко в чем суть"></textarea>
+                                        </div>
                                     </div>
                                     <div class="form__group clearfix">
                                         <label class="form__label" for="code">Введите код, указанный на картинке</label>
@@ -138,9 +142,11 @@
                                             </div>
                                         </div>
                                         <div class="form__col">
-                                            <div class="form__code-response">
-                                                <input type="text" id="code" class="form__input small"
-                                                       placeholder="Введите код"/>
+                                            <div class="form__input-section">
+                                                <div class="form__code-response">
+                                                    <input type="text" id="code" name="code" class="form__input small"
+                                                           placeholder="Введите код"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +155,8 @@
                                             <button type="submit" class="form__btn primary">Отправить</button>
                                         </div>
                                         <div class="form__col">
-                                            <button type="reset" class="form__btn">Очистить</button>
+                                            <button id="clearFeedbackForm" type="reset" class="form__btn">Очистить
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -236,9 +243,16 @@
             </div>
         </div>
     </footer>
+
+
     <!--build:js js/main.min.js-->
     <script src="bower/jquery/dist/jquery.min.js"></script>
+    <script src="js/skValidator.js"></script>
+    <script src="js/skModal.js"></script>
     <script src="js/main.js"></script>
+    <!--endbuild-->
+    <!--build:js js/feedback.min.js-->
+    <script src="js/feedback.js"></script>
     <!--endbuild-->
 </body>
 </html>
