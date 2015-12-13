@@ -1,0 +1,17 @@
+{
+  "name": "skaynetmen/homework1",
+  "description": "Homework #1 Loftschool.com",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Alexandr Skrylev",
+      "email": "skaynet.men@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Skaynetmen\\Homework1\\": "src/Skaynetmen/Homework1/"
+    }
+  }
+}
