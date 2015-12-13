@@ -42,8 +42,10 @@
      */
     var validateField = function (field) {
         //перед проверкой удалим поле из глобального массива
-        var indexError = errors.indexOf(field.name);
-        errors.splice(indexError, 1);
+        var indexError = $.inArray(field.name, errors);
+        if (indexError >= 0) {
+            errors.splice(indexError, 1);
+        }
 
         field.errors = [];
         //проверяем поле по всем правилам

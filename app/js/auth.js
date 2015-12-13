@@ -1,21 +1,9 @@
-window.APP.feedback = (function ($) {
+window.APP.auth = (function ($) {
     'use strict';
-    var $form = $('#feedbackForm');
+    var $form = $('#authForm');
 
     var submit = function () {
         var fields = [
-                {
-                    name: 'name',
-                    rules: {
-                        required: true,
-                        minLength: 2
-                    },
-                    messages: {
-                        required: 'Пожалуйства введите Ваше имя.',
-                        minLength: 'Имя не может состоять меньше чем из 2 букв.'
-                    },
-                    errorMsgSubClass: 'left'
-                },
                 {
                     name: 'email',
                     rules: {
@@ -28,23 +16,15 @@ window.APP.feedback = (function ($) {
                     }
                 },
                 {
-                    name: 'message',
+                    name: 'password',
                     rules: {
-                        required: true
+                        required: true,
+                        minLength: 6
                     },
                     messages: {
-                        required: 'Пожалуйства введите сообщение.',
-                    }
-                },
-                {
-                    name: 'code',
-                    rules: {
-                        required: true
+                        required: 'Пожалуйства введите Ваш пароль.',
+                        minLength: 'Пароль не может состоять меньше чем из 6 символов.'
                     },
-                    messages: {
-                        required: 'Пожалуйства введите код с картинки.',
-                    },
-                    errorAppend: '.form__input-section'
                 }
             ],
             success = function (e) {
@@ -78,4 +58,4 @@ window.APP.feedback = (function ($) {
     };
 })(window.jQuery);
 
-window.APP.feedback.init();
+window.APP.auth.init();

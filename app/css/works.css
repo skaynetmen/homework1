@@ -2,10 +2,6 @@
     padding-top: 38px; /*для перфектпикселя подгоняем верхний паддинг*/
 }
 
-.works {
-    /*margin-right: -32px;*/
-}
-
 .works__list {
     margin: 0;
     padding: 0;
@@ -22,10 +18,6 @@
 
     vertical-align: top;
     font-size: 16px;
-}
-
-.works__item:not(:last-child) {
-    /*margin-right: 32px;*/
 }
 
 .work {
@@ -171,7 +163,6 @@
         display: inline-block;
         margin-left: 75px;
     }
-
 
     .work {
         margin-left: 0;

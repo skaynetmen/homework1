@@ -2,14 +2,6 @@
     padding-top: 32px; /*для перфектпикселя подгоняем верхний паддинг*/
 }
 
-.feedback {
-    /*padding: 0 81px;*/
-}
-
-.form {
-
-}
-
 .form__code {
     position: relative;
     height: 79px;
@@ -30,14 +22,23 @@
     display: block;
     max-width: 100%;
     height: auto;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 .form__code-response {
     position: relative;
     height: 79px;
+}
+
+.form__input.small {
+    position: relative;
+    top: 50%;
+    margin-top: -16px;
+    transform: none;
 }
 
 .form__footer {

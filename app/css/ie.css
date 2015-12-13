@@ -1,7 +1,93 @@
 .bg {
-    background: #75A492;
+    background: #f7e090;
 }
 
 .bg:before {
     background: transparent;
+}
+
+.contacts__link {
+    height: 38px;
+    min-height: inherit;
+}
+
+.contacts__icon {
+    margin-top: -0.57em;
+    transform: none;
+}
+
+.contacts__desc:before {
+    top: 0;
+    margin-top: -12px;
+    transform: none;
+}
+
+.form__col.disable-margin {
+    padding-right: 0;
+    padding-left: 9.5px;
+}
+
+.form__input-group-btn .form__btn {
+    padding: 0 10px;
+}
+
+.form__btn {
+    padding: 0 22px;
+}
+
+.work__hover {
+    background: #6F6D6D;
+    filter: alpha(opacity=41);
+}
+
+.footer {
+    padding-bottom: 0;
+    box-sizing: border-box;
+    height: 61px;
+    min-height: inherit;
+}
+
+.auth {
+    margin-top: -141px;
+    transform: none;
+}
+
+.form__checkbox span {
+    display: none;
+}
+
+.form__checkbox input[type=checkbox] {
+    visibility: visible;
+}
+
+@media screen and (min-width: 1200px) {
+    .tooltip {
+        position: relative;
+        top: 0;
+        right: auto;
+        margin: 10px 0;
+        max-width: 200px;
+        background: transparent;
+        filter: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        transform: none;
+    }
+
+    .tooltip:before {
+        display: none;
+    }
+
+    .tooltip.left {
+        transform: none;
+        left: 0;
+        right: auto;
+    }
+
+    .tooltip.left:before {
+        left: auto;
+        right: 0;
+        transform: none;
+    }
 }

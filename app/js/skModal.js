@@ -176,11 +176,6 @@
         settings = $.extend(settings, options);
         id = 'skModal' + Math.floor((Math.random() * 100) + 1);
 
-        //если в настройки передана callback функция при открытии окна, выполняем ее
-        if (typeof settings.onOpen == 'function') {
-            settings.onOpen.apply($modal);
-        }
-
         var position = calcPosition(windowSize(), modalSize());
 
         //Показываем подложку
@@ -198,6 +193,11 @@
             'transition': 'left, top 1s ease'
         })
             .fadeIn();
+
+        //если в настройки передана callback функция при открытии окна, выполняем ее
+        if (typeof settings.onOpen == 'function') {
+            settings.onOpen.apply($modal);
+        }
 
         //добавляем события
         addEvents();

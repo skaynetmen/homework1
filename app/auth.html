@@ -62,26 +62,28 @@
             <div id="auth" class="auth">
                 <span class="auth__title">Авторизуйтесь</span>
 
-                <form action="auth.html" class="form" method="post">
+                <form id="authForm" action="auth.html" class="form" method="post">
                     <div class="form__group">
-                        <span class="form__input-addon">
-                                <span class="icon ico-auth-email"></span>
-                            </span>
-                        <input type="email" id="email" class="form__input error"
-                               placeholder="Введите Email"/>
-                        <span class="tooltip">введите email</span>
+                        <div class="form__input-section">
+                            <span class="form__input-addon">
+                                    <span class="icon ico-auth-email"></span>
+                                </span>
+                            <input type="email" id="email" name="email" class="form__input"
+                                   placeholder="Введите Email"/>
+                        </div>
                     </div>
                     <div class="form__group custom">
-                        <span class="form__input-addon">
-                                <span class="icon ico-auth-key"></span>
-                            </span>
-                        <input type="password" id="password" class="form__input"
-                               placeholder="Введите пароль"/>
-                        <span class="tooltip left hidden">введите пароль</span>
+                        <div class="form__input-section">
+                            <span class="form__input-addon">
+                                    <span class="icon ico-auth-key"></span>
+                                </span>
+                            <input type="password" id="password" name="password" class="form__input"
+                                   placeholder="Введите пароль"/>
+                        </div>
                     </div>
                     <div class="form__group custom2">
                         <label class="form__checkbox">
-                            <input type="checkbox" id="remember"/>
+                            <input type="checkbox" id="remember" name="remember"/>
                             <span></span>
                             Запомнить меня?
                         </label>
@@ -107,5 +109,22 @@
             </div>
         </div>
     </footer>
+
+    <!--build:js js/vendor.min.js-->
+    <script src="bower/jquery/dist/jquery.min.js"></script>
+    <!--endbuild-->
+    <!--build:js js/vendor.ie.min.js-->
+    <!--[if lt IE 9]>
+    <script src="bower/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <![endif]-->
+    <!--endbuild-->
+    <!--build:js js/main.min.js-->
+    <script src="js/skValidator.js"></script>
+    <script src="js/skModal.js"></script>
+    <script src="js/main.js"></script>
+    <!--endbuild-->
+    <!--build:js js/auth.min.js-->
+    <script src="js/auth.js"></script>
+    <!--endbuild-->
 </body>
 </html>

@@ -9,8 +9,13 @@ window.APP.works = (function ($) {
 
             $('.modal').skModal({
                 closeClass: 'modal__close',
+                onOpen: placeholder,
                 onClose: function () {
-                    $form[0].reset();
+                    //не делаем ресет формы на ИЕ8, иначе слетают placeholder
+                    //Modernizr.input.placeholder
+                    if (!$('html').hasClass('lt-ie9')) {
+                        $form[0].reset();
+                    }
                 }
             });
         });
@@ -86,7 +91,7 @@ window.APP.works = (function ($) {
 
                 var data = $(this).serialize();
 
-                console.log('yea', data);
+                alert(data);
             };
 
 
@@ -103,6 +108,13 @@ window.APP.works = (function ($) {
                 .closest('.alert')
                 .remove();
         });
+    };
+
+    var placeholder = function () {
+        //Modernizr.input.placeholder
+        if ($('html').hasClass('lt-ie9')) {
+            $form.find('.form__input').placeholder();
+        }
     };
 
     return {
