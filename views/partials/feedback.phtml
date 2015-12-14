@@ -1,0 +1,67 @@
+<section class="section">
+    <div class="section__header">
+        <h2 class="section__title">У вас интересный проект? Напишите мне</h2>
+    </div>
+
+    <div class="section__body">
+        <div id="feedback" class="feedback">
+            <form id="feedbackForm" action="feedback.html" class="form" method="post">
+                <div class="form__group clearfix disable-float">
+                    <div class="form__col">
+                        <label class="form__label" for="name">Имя</label>
+
+                        <div class="form__input-section">
+                            <input type="text" id="name" name="name" class="form__input"
+                                   placeholder="Как к Вам обращаться"/>
+                            <!--<span class="tooltip left">введите имя</span>-->
+                        </div>
+                    </div>
+                    <div class="form__col disable-margin">
+                        <label class="form__label" for="email">Email</label>
+
+                        <div class="form__input-section">
+                            <input type="text" id="email" name="email" class="form__input"
+                                   placeholder="Куда мне писать"/>
+                            <!--<span class="tooltip">введите email</span>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Сообщение</label>
+
+                    <div class="form__input-section">
+                        <textarea class="form__input" name="message"
+                                  placeholder="Кратко в чем суть"></textarea>
+                    </div>
+                </div>
+                <div class="form__group clearfix">
+                    <label class="form__label" for="code">Введите код, указанный на картинке</label>
+
+                    <div class="form__col">
+                        <div class="form__code">
+                            <img src="img/feedback/code.png" alt="code" class="form__code-img"/>
+                        </div>
+                    </div>
+                    <div class="form__col">
+                        <div class="form__input-section">
+                            <div class="form__code-response">
+                                <input type="text" id="code" name="code" class="form__input small"
+                                       placeholder="Введите код"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__footer clearfix">
+                    <div class="form__col">
+                        <button type="submit" class="form__btn primary">Отправить</button>
+                    </div>
+                    <div class="form__col">
+                        <button id="clearFeedbackForm" type="reset" class="form__btn">Очистить
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- ./напишите мне-->

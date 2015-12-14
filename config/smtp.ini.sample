@@ -1,0 +1,8 @@
+host = smtp.example.com
+username = me@example.com
+password = secret
+secure = ssl
+port = 465
+siteName = Homework#1
+to = me@example.com
+subject = Feedback

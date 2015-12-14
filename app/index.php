@@ -1,6 +1,8 @@
 <?php
 
+$basePath = __DIR__ . '/../';
 define('ENVIRONMENT', 'dev');
+define('BASEPATH', $basePath);
 
 if (defined('ENVIRONMENT')) {
     switch (ENVIRONMENT) {
@@ -19,8 +21,8 @@ if (defined('ENVIRONMENT')) {
     }
 }
 
-if (file_exists('../vendor/autoload.php')) {
-    require_once '../vendor/autoload.php';
+if (file_exists(BASEPATH . 'vendor/autoload.php')) {
+    require_once BASEPATH . 'vendor/autoload.php';
 } else {
     exit('Не найден файл автозагрузки, необходимо выполнить "composer install"');
 }
@@ -71,7 +73,8 @@ try {
     $router = new \Skaynetmen\Homework1\Core\Router($collection);
 
     if (!$router->run()) {
-        throw new \Exception('404 page not found');
+        header($_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+        echo '404 Not Found';
     }
 } catch (\Exception $e) {
     echo $e->getMessage();

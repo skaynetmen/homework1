@@ -3,3 +3,5 @@ app/bower
 .idea
 dist
 vendor
+config/smtp.ini
+composer.lock

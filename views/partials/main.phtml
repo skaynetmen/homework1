@@ -1,0 +1,75 @@
+<main class="main">
+    <div class="container clearfix">
+        <div class="content">
+            <?php $this->getPartial(); ?>
+        </div>
+        <!-- ./content-->
+        <?php $currentPage = \Skaynetmen\Homework1\Core\Url::get(); ?>
+        <aside class="sidebar">
+            <nav id="menu" class="sidebar__block sidebar__menu">
+                <ul class="menu">
+                    <li class="menu__item <?php if ($currentPage == '/') {
+                        echo 'active';
+                    } ?>">
+                        <a href="./" class="menu__link">Обо мне</a>
+                    </li>
+                    <li class="menu__item <?php if ($currentPage == '/works') {
+                        echo 'active';
+                    } ?>">
+                        <a href="/works" class="menu__link">Мои работы</a>
+                    </li>
+                    <li class="menu__item <?php if ($currentPage == '/feedback') {
+                        echo 'active';
+                    } ?>">
+                        <a href="/feedback" class="menu__link">Обратная связь</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar__block">
+                <div class="contacts">
+                    <div class="contacts__header">
+                        <h3 class="contacts__title">Контакты</h3>
+                    </div>
+
+                    <div class="contacts__body">
+                        <ul class="contacts__list">
+                            <li class="contacts__item">
+                                <a href="mailto:me@alskr.ru" class="contacts__link">
+                                    <span class="contacts__icon">
+                                        <span class="icon ico-email"></span>
+                                    </span>
+                                    <span class="contacts__desc">
+                                        me@alskr.ru
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="contacts__item">
+                                <a href="tel:+791822303XX" class="contacts__link">
+                                    <span class="contacts__icon">
+                                        <span class="icon ico-phone"></span>
+                                    </span>
+                                    <span class="contacts__desc">
+                                        +791822303XX
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="contacts__item">
+                                <a href="skype:sk.avenger" class="contacts__link">
+                                    <span class="contacts__icon">
+                                        <span class="icon ico-skype"></span>
+                                    </span>
+                                    <span class="contacts__desc">
+                                        sk.avenger
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- ./sidebar-->
+    </div>
+    <!-- ./container-->
+</main>

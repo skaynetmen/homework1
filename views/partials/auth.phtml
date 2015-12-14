@@ -1,0 +1,37 @@
+<main class="main">
+    <div id="auth" class="auth">
+        <span class="auth__title">Авторизуйтесь</span>
+
+        <form id="authForm" action="auth.html" class="form" method="post">
+            <div class="form__group">
+                <div class="form__input-section">
+                            <span class="form__input-addon">
+                                    <span class="icon ico-auth-email"></span>
+                                </span>
+                    <input type="email" id="email" name="email" class="form__input"
+                           placeholder="Введите Email"/>
+                </div>
+            </div>
+            <div class="form__group custom">
+                <div class="form__input-section">
+                            <span class="form__input-addon">
+                                    <span class="icon ico-auth-key"></span>
+                                </span>
+                    <input type="password" id="password" name="password" class="form__input"
+                           placeholder="Введите пароль"/>
+                </div>
+            </div>
+            <div class="form__group custom2">
+                <label class="form__checkbox">
+                    <input type="checkbox" id="remember" name="remember"/>
+                    <span></span>
+                    Запомнить меня?
+                </label>
+            </div>
+            <div class="form__footer">
+                <button type="submit" class="form__btn primary">Войти</button>
+            </div>
+        </form>
+    </div>
+    <!-- ./auth-->
+</main>

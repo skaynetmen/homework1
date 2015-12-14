@@ -13,5 +13,8 @@
     "psr-4": {
       "Skaynetmen\\Homework1\\": "src/Skaynetmen/Homework1/"
     }
+  },
+  "require": {
+    "phpmailer/phpmailer": "v5.2.14"
   }
 }
