@@ -57,7 +57,7 @@ window.APP.feedback = (function ($) {
                     url: $that.attr('action'),
                     method: $that.attr('method'),
                     data: $that.serialize(),
-                    type: 'json',
+                    dataType: 'json',
                     success: function (data) {
                         if (!data.error) {
                             $feedbackMsg.html('<div class="alert success"><button class="alert__close">&times;</button><h4 class="alert__title">Выполнено!</h4><p>' + data.msg + '</p></div>');
