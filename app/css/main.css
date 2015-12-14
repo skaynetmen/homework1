@@ -533,7 +533,7 @@ p {
     position: relative;
     padding: 19px 0 23px;
     margin-top: -61px;
-    min-height: 61px;
+    height: 61px;
     background-color: #FFFFFF;
     background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.06) 100%);
     background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.06) 100%);

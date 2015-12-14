@@ -1,6 +1,7 @@
 window.APP.feedback = (function ($) {
     'use strict';
-    var $form = $('#feedbackForm');
+    var $form = $('#feedbackForm'),
+        $feedbackMsg = $('#feedbackMsg');
 
     var submit = function () {
         var fields = [
@@ -50,9 +51,25 @@ window.APP.feedback = (function ($) {
             success = function (e) {
                 e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
-                var data = $(this).serialize();
+                var $that = $(this);
 
-                alert(data);
+                $.ajax({
+                    url: $that.attr('action'),
+                    method: $that.attr('method'),
+                    data: $that.serialize(),
+                    type: 'json',
+                    success: function (data) {
+                        if (!data.error) {
+                            $feedbackMsg.html('<div class="alert success"><button class="alert__close">&times;</button><h4 class="alert__title">Выполнено!</h4><p>' + data.msg + '</p></div>');
+                            $that[0].reset();
+                        } else {
+                            $feedbackMsg.html('<div class="alert error"><button class="alert__close">&times;</button><h4 class="alert__title">Ошибка!</h4><p>' + data.msg + '</p></div>');
+                        }
+                    },
+                    error: function () {
+                        $feedbackMsg.html('<div class="alert error"><button class="alert__close">&times;</button><h4 class="alert__title">Ошибка!</h4><p>Не удалось подключиться к серверу.</p></div>');
+                    }
+                });
             };
 
 
@@ -70,10 +87,19 @@ window.APP.feedback = (function ($) {
         }
     };
 
+    var closeAlert = function () {
+        $feedbackMsg.on('click', '.alert__close', function () {
+            $(this)
+                .closest('.alert')
+                .remove();
+        });
+    };
+
     return {
         init: function () {
             placeholder();
             submit();
+            closeAlert();
         }
     };
 })(window.jQuery);

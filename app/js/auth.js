@@ -1,6 +1,7 @@
 window.APP.auth = (function ($) {
     'use strict';
-    var $form = $('#authForm');
+    var $form = $('#authForm'),
+        $authMsg = $('#authMsg');
 
     var submit = function () {
         var fields = [
@@ -30,9 +31,25 @@ window.APP.auth = (function ($) {
             success = function (e) {
                 e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
-                var data = $(this).serialize();
+                var $that = $(this);
 
-                alert(data);
+                $.ajax({
+                    url: $that.attr('action'),
+                    method: $that.attr('method'),
+                    data: $that.serialize(),
+                    type: 'json',
+                    success: function (data) {
+                        if (!data.error) {
+                            $authMsg.html('<div class="alert success"><button class="alert__close">&times;</button><h4 class="alert__title">Выполнено!</h4><p>' + data.msg + '</p></div>');
+                            $that[0].reset();
+                        } else {
+                            $authMsg.html('<div class="alert error"><button class="alert__close">&times;</button><h4 class="alert__title">Ошибка!</h4><p>' + data.msg + '</p></div>');
+                        }
+                    },
+                    error: function () {
+                        $authMsg.html('<div class="alert error"><button class="alert__close">&times;</button><h4 class="alert__title">Ошибка!</h4><p>Не удалось подключиться к серверу.</p></div>');
+                    }
+                });
             };
 
 
