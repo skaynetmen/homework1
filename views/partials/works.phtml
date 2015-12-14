@@ -8,22 +8,23 @@
             <ul class="works__list">
                 <?php foreach ($this->works as $work): ?>
                     <li class="works__item">
-                        <a href="#" class="work">
+                        <a href="<?php echo $work->link; ?>" class="work">
                             <div class="work__preview">
-                                <img src="img/works/work-1.jpg" alt="work-1" class="work__img"/>
+                                <img src="<?php echo $work->image; ?>" alt="<?php echo $work->title; ?>"
+                                     class="work__img"/>
                                                 <span class="work__hover">
                                                     <span class="work__hover-title">Подробнее</span>
                                                 </span>
                             </div>
-                            <h4 class="work__title">a-industry.ru</h4>
+                            <h4 class="work__title"><?php echo $work->title; ?></h4>
 
                             <div class="work__desc">
-                                <p>Корпоративный и в тоже время продающий сайт строительной компании
-                                    a-industry.</p>
+                                <p><?php echo $work->description; ?></p>
                             </div>
                         </a>
                     </li>
                 <?php endforeach; ?>
+                <?php if (\Skaynetmen\Homework1\Core\Auth::loggedIn()): ?>
                 <li class="works__item">
                     <a id="addWork" href="#" class="work add">
                         <div class="work__add-img">
@@ -32,27 +33,22 @@
                         <h4 class="work__add-title">Добавить работу</h4>
                     </a>
                 </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
 </section>
 <!-- ./мои работы-->
 
+<?php if (\Skaynetmen\Homework1\Core\Auth::loggedIn()): ?>
 <div id="modalAddWork" class="modal">
     <div class="modal__wrapper">
         <h4 class="modal__title">Добавление проекта</h4>
 
         <div class="modal__body">
             <button class="modal__close">&times;</button>
-            <div id="modalMsg">
-                <div class="alert error">
-                    <button class="alert__close">&times;</button>
-                    <h4 class="alert__title">Ошибка!</h4>
-
-                    <p>Невозможно добавить проект.</p>
-                </div>
-            </div>
-            <form id="formAddWork" action="#" method="post" enctype="multipart/form-data">
+            <div id="modalMsg"></div>
+            <form id="formAddWork" action="/works/add" method="post" enctype="multipart/form-data">
                 <div class="form__group">
                     <label for="projectName" class="form__label">Название проекта</label>
 
@@ -68,7 +64,7 @@
                         <input type="file" id="projectImg" name="img" class="hidden"/>
 
                         <div class="form__input-group">
-                            <input type="text" id="fakeProjectImg" name="fakeImg" class="form__input"
+                            <input type="text" id="fakeProjectImg" class="form__input"
                                    placeholder="Загрузите изображение" readonly/>
                                 <span class="form__input-group-btn">
                                     <button id="fakeInputFile" type="button" class="form__btn"><i
@@ -100,3 +96,4 @@
         </div>
     </div>
 </div>
+<?php endif; ?>

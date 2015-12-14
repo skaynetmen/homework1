@@ -5,7 +5,8 @@
 
     <div class="section__body">
         <div id="feedback" class="feedback">
-            <form id="feedbackForm" action="feedback.html" class="form" method="post">
+            <div id="feedbackMsg"></div>
+            <form id="feedbackForm" action="/feedback/send" class="form" method="post">
                 <div class="form__group clearfix disable-float">
                     <div class="form__col">
                         <label class="form__label" for="name">Имя</label>
@@ -13,7 +14,6 @@
                         <div class="form__input-section">
                             <input type="text" id="name" name="name" class="form__input"
                                    placeholder="Как к Вам обращаться"/>
-                            <!--<span class="tooltip left">введите имя</span>-->
                         </div>
                     </div>
                     <div class="form__col disable-margin">
@@ -22,7 +22,6 @@
                         <div class="form__input-section">
                             <input type="text" id="email" name="email" class="form__input"
                                    placeholder="Куда мне писать"/>
-                            <!--<span class="tooltip">введите email</span>-->
                         </div>
                     </div>
                 </div>

@@ -4,4 +4,5 @@ app/bower
 dist
 vendor
 config/smtp.ini
+config/database.ini
 composer.lock

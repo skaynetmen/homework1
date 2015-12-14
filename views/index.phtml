@@ -74,10 +74,17 @@
 <footer class="footer">
     <div class="container clearfix">
         <div class="login">
+            <?php if (!\Skaynetmen\Homework1\Core\Auth::loggedIn()): ?>
             <a href="/auth" class="login__link">
                 <span class="icon ico-locked"></span>
                 вход
             </a>
+            <?php else: ?>
+                <a href="/auth/logout" class="login__link">
+                    <span class="icon ico-locked"></span>
+                    выход
+                </a>
+            <?php endif; ?>
         </div>
         <div class="copyright">
             <p>&copy; 2015. Это мой сайт, пожалуйста, не копируйте и не воруйте его!</p>
