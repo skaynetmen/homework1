@@ -279,15 +279,8 @@
 
             <div class="modal__body">
                 <button class="modal__close">&times;</button>
-                <div id="modalMsg">
-                    <div class="alert error">
-                        <button class="alert__close">&times;</button>
-                        <h4 class="alert__title">Ошибка!</h4>
-
-                        <p>Невозможно добавить проект.</p>
-                    </div>
-                </div>
-                <form id="formAddWork" action="#" method="post" enctype="multipart/form-data">
+                <div id="modalMsg"></div>
+                <form id="formAddWork" action="/works/add" method="post" enctype="multipart/form-data">
                     <div class="form__group">
                         <label for="projectName" class="form__label">Название проекта</label>
 
