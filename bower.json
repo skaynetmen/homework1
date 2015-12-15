@@ -5,7 +5,8 @@
     "normalize.css": "~3.0.3",
     "respond": "~1.4.2",
     "html5shiv": "~3.7.3",
-    "jquery-placeholder": "~2.3.0"
+    "jquery-placeholder": "~2.3.0",
+    "blueimp-file-upload": "~9.11.2"
   },
   "overrides": {}
 }
