@@ -5,4 +5,5 @@ dist
 vendor
 config/smtp.ini
 config/database.ini
+config/recaptcha.ini
 composer.lock

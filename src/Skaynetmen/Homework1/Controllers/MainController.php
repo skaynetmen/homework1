@@ -6,6 +6,7 @@ use Skaynetmen\Homework1\Core\Auth;
 use Skaynetmen\Homework1\Core\Controller;
 use Skaynetmen\Homework1\Core\View;
 use Skaynetmen\Homework1\Models\Feedback;
+use Skaynetmen\Homework1\Models\Recapthca;
 use Skaynetmen\Homework1\Models\Works;
 use Websafe\Blueimp\JqueryFileUploadHandler;
 
@@ -75,26 +76,35 @@ class MainController extends Controller
     //POST
     public function sendFeedbackAction()
     {
-        if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
-            $feedbackModel = new Feedback();
+        $recaptchaModel = new Recapthca();
 
-            $msg = $feedbackModel->msg($_POST['name'], $_POST['email'], $_POST['message']);
+        if (isset($_POST['g-recaptcha-response']) && $recaptchaModel->check($_POST['g-recaptcha-response'])) {
+            if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
+                $feedbackModel = new Feedback();
 
-            if ($feedbackModel->send($msg)) {
-                $json = [
-                    'error' => false,
-                    'msg' => 'Сообщение успешно успешно отправлено!'
-                ];
+                $msg = $feedbackModel->msg($_POST['name'], $_POST['email'], $_POST['message']);
+
+                if ($feedbackModel->send($msg)) {
+                    $json = [
+                        'error' => false,
+                        'msg' => 'Сообщение успешно успешно отправлено!'
+                    ];
+                } else {
+                    $json = [
+                        'error' => true,
+                        'msg' => 'Не удалось отправить сообщение!'
+                    ];
+                }
             } else {
                 $json = [
                     'error' => true,
-                    'msg' => 'Не удалось отправить сообщение!'
+                    'msg' => 'Заполните все поля!'
                 ];
             }
         } else {
             $json = [
                 'error' => true,
-                'msg' => 'Заполните все поля!'
+                'msg' => 'Google reCapthca сказала что вы робот!'
             ];
         }
 
