@@ -10,7 +10,10 @@ window.APP.works = (function ($) {
 
             $('.modal').skModal({
                 closeClass: 'modal__close',
-                onOpen: placeholder,
+                onOpen: function () {
+                    placeholder();
+                    fileUpload();
+                },
                 onClose: function () {
                     //не делаем ресет формы на ИЕ8, иначе слетают placeholder
                     //Modernizr.input.placeholder
@@ -131,6 +134,39 @@ window.APP.works = (function ($) {
         //Modernizr.input.placeholder
         if ($('html').hasClass('lt-ie9')) {
             $form.find('.form__input').placeholder();
+        }
+    };
+
+    var fileUpload = function () {
+        if (typeof $.fn.fileupload !== 'undefined') {
+            $('#projectImg').fileupload({
+                url: '/works/upload',
+                dataType: 'json',
+                done: function (e, data) {
+                    $.each(data.result.files, function (index, file) {
+                        if (file.type == 'image/jpeg' || file.type == 'image/png') {
+                            $('#imageFile')
+                                .html($('<p/>')
+                                    .html('<img src="' + file.thumbnailUrl + '" alt="" class="modal__img"/>' + file.name));
+                            $('#hiddenField').val(file.name);
+                        }
+                        else {
+                            $modalMsg.html('<div class="alert error"><button class="alert__close">&times;</button><h4 class="alert__title">Ошибка!</h4><p>Неверный формат файла!</p></div>');
+
+                            $.ajax({
+                                type: file.deleteType,
+                                url: file.deleteUrl,
+                                success: function () {
+                                    //console.log(file.name + ' has deleted');
+                                }
+                            });
+                        }
+                    });
+                },
+                //acceptFileTypes: /(\.|\/)(jpe?g|png)$/i
+            }).prop('disabled', !$.support.fileInput)
+                .parent()
+                .addClass($.support.fileInput ? undefined : 'disabled');
         }
     };
 

@@ -42,6 +42,10 @@ window.APP.auth = (function ($) {
                         if (!data.error) {
                             $authMsg.html('<div class="alert success"><button class="alert__close">&times;</button><h4 class="alert__title">Выполнено!</h4><p>' + data.msg + '</p></div>');
                             $that[0].reset();
+
+                            setTimeout(function () {
+                                window.location.href = '/';
+                            }, 1000);
                         } else {
                             $authMsg.html('<div class="alert error"><button class="alert__close">&times;</button><h4 class="alert__title">Ошибка!</h4><p>' + data.msg + '</p></div>');
                         }

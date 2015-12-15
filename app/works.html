@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="css/fonts.css"/>
     <!--endbuild-->
     <!--build:css css/works.min.css-->
+    <link rel="stylesheet" href="bower/blueimp-file-upload/css/jquery.fileupload.css">
     <link rel="stylesheet" href="css/works.css"/>
     <!--endbuild-->
     <!--build:css css/ie.min.css-->
@@ -293,7 +294,8 @@
                         <label for="projectImg" class="form__label">Картинка проекта</label>
 
                         <div class="form__input-section">
-                            <input type="file" id="projectImg" name="img" class="hidden"/>
+                            <input type="hidden" id="hiddenField" name="img">
+                            <input type="file" id="projectImg" name="file" class="hidden"/>
 
                             <div class="form__input-group">
                                 <input type="text" id="fakeProjectImg" name="fakeImg" class="form__input"
@@ -304,6 +306,7 @@
                                 </span>
                             </div>
                         </div>
+                        <div id="imgThumbnail" class="files"></div>
                     </div>
                     <div class="form__group">
                         <label for="projectUrl" class="form__label">URL проекта</label>
@@ -343,6 +346,9 @@
     <script src="js/main.js"></script>
     <!--endbuild-->
     <!--build:js js/works.min.js-->
+    <script src="bower/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="bower/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="bower/blueimp-file-upload/js/jquery.fileupload.js"></script>
     <script src="js/works.js"></script>
     <!--endbuild-->
 </body>
