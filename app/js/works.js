@@ -38,10 +38,10 @@ window.APP.works = (function ($) {
             $projectImg.trigger('click');
         });
 
-        $projectImg.on('change', function () {
-            $fakeProjectImg.val($(this).val());
-            $fakeProjectImg.trigger('keyup');
-        });
+        //$projectImg.on('change', function () {
+        //    $fakeProjectImg.val($(this).val());
+        //    $fakeProjectImg.trigger('keyup');
+        //});
     };
 
     var submit = function () {
@@ -59,7 +59,7 @@ window.APP.works = (function ($) {
                     errorMsgSubClass: 'left'
                 },
                 {
-                    name: 'fakeImg',
+                    name: 'img',
                     rules: {
                         required: true
                     },
@@ -145,10 +145,12 @@ window.APP.works = (function ($) {
                 done: function (e, data) {
                     $.each(data.result.files, function (index, file) {
                         if (file.type == 'image/jpeg' || file.type == 'image/png') {
-                            $('#imageFile')
+                            $('#imgThumbnail')
                                 .html($('<p/>')
-                                    .html('<img src="' + file.thumbnailUrl + '" alt="" class="modal__img"/>' + file.name));
-                            $('#hiddenField').val(file.name);
+                                    .html('<img src="' + file.thumbnailUrl + '" alt="" class="modal__img"/>'));
+                            $('#fakeProjectImg')
+                                .val(file.url)
+                                .trigger('keyup');
                         }
                         else {
                             $modalMsg.html('<div class="alert error"><button class="alert__close">&times;</button><h4 class="alert__title">Ошибка!</h4><p>Неверный формат файла!</p></div>');

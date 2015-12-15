@@ -58,6 +58,7 @@
     position: relative;
     height: 120px;
     border-bottom: 1px solid #bababa;
+    overflow: hidden;
 }
 
 .work__img {
