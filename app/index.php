@@ -50,6 +50,11 @@ try {
         'method' => 'POST'
     )));
 
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/works/upload', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\MainController::uploadAction',
+        'method' => 'POST'
+    )));
+
     $collection->add(new \Skaynetmen\Homework1\Core\Route('/feedback/send', array(
         'controller' => '\Skaynetmen\Homework1\Controllers\MainController::sendFeedbackAction',
         'method' => 'POST'

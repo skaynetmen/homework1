@@ -26,12 +26,12 @@ class Works extends Model
 
     public function add($data)
     {
-        $data['created_at'] = time();
-        $data['updated_at'] = time();
+        $data[':created_at'] = time();
+        $data[':updated_at'] = time();
 
         $query = $this->db->prepare(
             "INSERT INTO works (title, description, link, image, created_at, updated_at) VALUES (:title, :description, :link, :image, :created_at, :updated_at)",
-            array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY)
+            array(\PDO::ATTR_CURSOR => \PDO::CURSOR_FWDONLY)
         );
 
         return $query->execute($data);

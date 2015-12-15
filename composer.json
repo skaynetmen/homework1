@@ -15,6 +15,7 @@
     }
   },
   "require": {
-    "phpmailer/phpmailer": "v5.2.14"
+    "phpmailer/phpmailer": "v5.2.14",
+    "websafe/lib-websafe-blueimp-jquery-file-upload-handler": "v9.11.2"
   }
 }

@@ -61,10 +61,10 @@
                     <label for="projectImg" class="form__label">Картинка проекта</label>
 
                     <div class="form__input-section">
-                        <input type="file" id="projectImg" name="img" class="hidden"/>
+                        <input type="file" id="projectImg" name="files[]" class="hidden"/>
 
                         <div class="form__input-group">
-                            <input type="text" id="fakeProjectImg" class="form__input"
+                            <input type="text" id="fakeProjectImg" name="img" class="form__input"
                                    placeholder="Загрузите изображение" readonly/>
                                 <span class="form__input-group-btn">
                                     <button id="fakeInputFile" type="button" class="form__btn"><i
@@ -72,6 +72,7 @@
                                 </span>
                         </div>
                     </div>
+                    <div id="imgThumbnail" class="files"></div>
                 </div>
                 <div class="form__group">
                     <label for="projectUrl" class="form__label">URL проекта</label>

@@ -7,6 +7,7 @@ use Skaynetmen\Homework1\Core\Controller;
 use Skaynetmen\Homework1\Core\View;
 use Skaynetmen\Homework1\Models\Feedback;
 use Skaynetmen\Homework1\Models\Works;
+use Websafe\Blueimp\JqueryFileUploadHandler;
 
 class MainController extends Controller
 {
@@ -32,12 +33,12 @@ class MainController extends Controller
     //POST
     public function addWorkAction()
     {
-        if (isset($_POST['name']) && isset($_FILES['img']) && isset($_POST['url']) && isset($_POST['desc'])) {
+        if (isset($_POST['name']) && isset($_POST['img']) && isset($_POST['url']) && isset($_POST['desc'])) {
             $data = [
                 ':title' => $_POST['name'],
-                ':img' => $_POST['img'],
-                ':url' => $_POST['url'],
-                ':desc' => $_POST['desc']
+                ':image' => $_POST['img'],
+                ':link' => $_POST['url'],
+                ':description' => $_POST['desc']
             ];
 
             $worksModel = new Works();
@@ -163,5 +164,34 @@ class MainController extends Controller
         } else {
             throw new \Exception('Не удается завершить сессию.');
         }
+    }
+
+    public function uploadAction()
+    {
+        $config = [
+            'script_url' => /*$this->getFullUrl() . */
+                './works/upload',
+            'upload_dir' => BASEPATH . 'app/uploads/',
+            'upload_url' => /*$this->getFullUrl() . */
+                './uploads/',
+            'delete_type' => 'POST'
+        ];
+
+        new JqueryFileUploadHandler($config);
+    }
+
+    private function getFullUrl()
+    {
+        $https = !empty($_SERVER['HTTPS']) && strcasecmp($_SERVER['HTTPS'], 'on') === 0 ||
+            !empty($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+            strcasecmp($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') === 0;
+
+        return
+            ($https ? 'https://' : 'http://') .
+            (!empty($_SERVER['REMOTE_USER']) ? $_SERVER['REMOTE_USER'] . '@' : '') .
+            (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : ($_SERVER['SERVER_NAME'] .
+                ($https && $_SERVER['SERVER_PORT'] === 443 ||
+                $_SERVER['SERVER_PORT'] === 80 ? '' : ':' . $_SERVER['SERVER_PORT']))) .
+            substr($_SERVER['SCRIPT_NAME'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/'));
     }
 }
