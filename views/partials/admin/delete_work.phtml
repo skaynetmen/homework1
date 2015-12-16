@@ -1,0 +1,19 @@
+<section class="section">
+    <div class="section__header">
+        <h2 class="section__title">Админка - Удаление работы #<?php echo $this->work->id; ?></h2>
+    </div>
+
+    <div class="section__body">
+        <div id="admin" class="admin">
+            <form id="formDeleteWork" action="/admin/work/delete/<?php echo $this->work->id; ?>" method="post">
+                <div class="form__group">
+                    <p><?php printf("Удалить работу %s?", $this->work->title); ?></p>
+                </div>
+                <div class="form__footer">
+                    <button type="submit" class="form__btn primary">Удалить</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>

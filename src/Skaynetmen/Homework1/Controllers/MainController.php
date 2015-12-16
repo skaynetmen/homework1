@@ -54,9 +54,10 @@ class MainController extends Controller
             && $request->post('url') && !empty($request->post('url'))
             && $request->post('desc') && !empty($request->post('desc'))
         ) {
+            //на всякий случай почистим поля от html/php тегов
             $data = [
                 ':title' => strip_tags($request->post('name')),
-                ':image' => $_POST['img'],
+                ':image' => strip_tags($_POST['img']),
                 ':link' => strip_tags($request->post('url')),
                 ':description' => strip_tags($request->post('desc'))
             ];

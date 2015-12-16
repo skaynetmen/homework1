@@ -86,9 +86,55 @@ try {
         'filters' => [':id' => '(\d+)']
     )));
 
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin/work/:id', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::saveWorkAction',
+        'method' => 'POST',
+        'filters' => [':id' => '(\d+)']
+    )));
+
     $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin/user/:id', array(
         'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::editUserAction',
         'method' => 'GET',
+        'filters' => [':id' => '(\d+)']
+    )));
+
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin/user/:id', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::saveUserAction',
+        'method' => 'POST',
+        'filters' => [':id' => '(\d+)']
+    )));
+
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin/addUser', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::newUserAction',
+        'method' => 'GET'
+    )));
+
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin/addUser', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::addUserAction',
+        'method' => 'POST'
+    )));
+
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin/work/delete/:id', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::confirmDeleteWorkAction',
+        'method' => 'GET',
+        'filters' => [':id' => '(\d+)']
+    )));
+
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin/work/delete/:id', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::deleteWorkAction',
+        'method' => 'POST',
+        'filters' => [':id' => '(\d+)']
+    )));
+
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin/user/delete/:id', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::confirmDeleteUserAction',
+        'method' => 'GET',
+        'filters' => [':id' => '(\d+)']
+    )));
+
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin/user/delete/:id', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::deleteUserAction',
+        'method' => 'POST',
         'filters' => [':id' => '(\d+)']
     )));
 
@@ -101,3 +147,4 @@ try {
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
+

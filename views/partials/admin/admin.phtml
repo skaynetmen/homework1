@@ -25,7 +25,7 @@
                         <td><?php echo date('H:i d.m.Y', $work->updated_at); ?></td>
                         <td>
                             <a href="/admin/work/<?php echo $work->id; ?>" class="admin__edit">Редактировать</a>
-                            <a href="#" class="admin__delete">Удалить</a>
+                            <a href="/admin/work/delete/<?php echo $work->id; ?>" class="admin__delete">Удалить</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -33,6 +33,7 @@
             </table>
 
             <h3 class="admin__title">Пользователи</h3>
+            <a href="/admin/addUser" class="admin__add">Добавить</a>
             <table class="admin__table">
                 <thead>
                 <tr>
@@ -52,7 +53,7 @@
                         <td><?php echo date('H:i d.m.Y', $user->updated_at); ?></td>
                         <td>
                             <a href="/admin/user/<?php echo $user->id; ?>" class="admin__edit">Редактировать</a>
-                            <a href="#" class="admin__delete">Удалить</a>
+                            <a href="/admin/user/delete/<?php echo $user->id; ?>" class="admin__delete">Удалить</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

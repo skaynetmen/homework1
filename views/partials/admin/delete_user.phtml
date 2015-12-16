@@ -1,0 +1,20 @@
+<section class="section">
+    <div class="section__header">
+        <h2 class="section__title">Админка - Удаление пользователя #<?php echo $this->user->id; ?></h2>
+    </div>
+
+    <div class="section__body">
+        <div id="admin" class="admin">
+            <form id="formDeleteUser" action="/admin/user/delete/<?php echo $this->user->id; ?>" method="post">
+                <div class="form__group">
+                    <p><?php printf("Удалить пользователя <%s> %s %s?", $this->user->email, $this->user->name,
+                            $this->user->lastname); ?></p>
+                </div>
+                <div class="form__footer">
+                    <button type="submit" class="form__btn primary">Удалить</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>

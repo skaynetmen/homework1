@@ -36,10 +36,10 @@ class Works extends Model
 
     /**
      * Добавляет новую работу
-     * @param $data
+     * @param array $data
      * @return bool
      */
-    public function add($data)
+    public function add(array $data)
     {
         $data[':created_at'] = time();
         $data[':updated_at'] = time();
@@ -49,7 +49,9 @@ class Works extends Model
             array(\PDO::ATTR_CURSOR => \PDO::CURSOR_FWDONLY)
         );
 
-        return $query->execute($data);
+        $query->execute($data);
+
+        return $this->db->lastInsertId();
     }
 
     /**
@@ -63,5 +65,32 @@ class Works extends Model
         $query->execute([':id' => $id]);
 
         return $query->fetch(\PDO::FETCH_OBJ);
+    }
+
+    /**
+     * Изменение параметров работы
+     * @param array $fields
+     * @return bool
+     */
+    public function save(array $fields)
+    {
+
+        $query = $this->db->prepare("UPDATE works SET title = :title, description = :description, image = :image, link = :link, updated_at = :updated_at WHERE id = :id");
+
+        return $query->execute($fields);
+    }
+
+    /**
+     * Удаление работы
+     * @param int $id
+     * @return bool
+     */
+    public function delete($id)
+    {
+        $query = $this->db->prepare("DELETE FROM works WHERE id = :id");
+
+        $query->execute([':id' => $id]);
+
+        return $query->rowCount() > 0;
     }
 }

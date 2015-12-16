@@ -21,6 +21,7 @@
     padding: 8px 6px;
 }
 
+.admin__add,
 .admin__edit,
 .admin__delete {
     color: #727070;

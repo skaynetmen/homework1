@@ -15,7 +15,9 @@ class Feedback extends Model
      */
     public function msg($name, $email, $message)
     {
+        //на всякий случай почистим поля от html/php тегов
         $name = strip_tags($name);
+        $email = strip_tags($email);
         $message = strip_tags($message);
 
         $text = "<h3>{$name}</h3>";
