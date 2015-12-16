@@ -305,7 +305,7 @@ p {
     position: absolute;
     content: ' ';
     display: block;
-    background: url('../img/spritesheet.png') no-repeat -155px -5px; /*.ico-contact-arrow*/
+    background: url('../img/spritesheet.png') no-repeat -190px -5px; /*.ico-contact-arrow*/
     width: 10px;
     height: 38px;
     left: 0;
@@ -562,7 +562,7 @@ p {
 .login__link:hover > .ico-locked {
     width: 26px;
     height: 22px;
-    background-position: -57px -189px;
+    background-position: -120px -70px;
 }
 
 .copyright {
@@ -1170,7 +1170,7 @@ button.alert__close {
         position: absolute;
         content: ' ';
         display: block;
-        background: url('../img/spritesheet.png') no-repeat -219px -135px;
+        background: url('../img/spritesheet.png') no-repeat -5px -70px;
         width: 7px;
         height: 12px;
         top: 50%;
