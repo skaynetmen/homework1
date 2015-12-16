@@ -507,12 +507,12 @@ p {
     display: none;
 }
 
-.section__list-item-icon {
-    position: relative;
-}
+/*.section__list-item-icon {*/
+/*position: relative;*/
+/*}*/
 
 .section__list-item-icon .icon {
-    margin: 0 auto;
+    margin: 0 auto 10px;
 }
 
 .section__list-item-desc {
@@ -1034,12 +1034,14 @@ button.alert__close {
 
     .section__list-item-icon {
         width: 96px;
+        min-height: 55px;
+        float: left;
     }
 
     .section__list-item-icon .icon {
-        position: absolute;
-        margin-top: -0.4em;
-        top: 50%;
+        /*position: absolute;*/
+        margin: -0.4em 0 0;
+        /*top: 50%;*/
     }
 
     .section__list-item-desc {
