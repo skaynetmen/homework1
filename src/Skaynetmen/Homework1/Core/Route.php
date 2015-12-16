@@ -5,12 +5,41 @@ namespace Skaynetmen\Homework1\Core;
 
 class Route
 {
+    /**
+     * URL
+     * @var string
+     */
     private $url;
+
+    /**
+     * Имя контроллера
+     * @var string
+     */
     private $controller;
+
+    /**
+     * Метод на который будет отзываться данный роут
+     * @var string
+     */
     private $method;
+
+    /**
+     * Массив аргументов, которые будут переданы методу контроллера
+     * @var array
+     */
     private $params = [];
+
+    /**
+     * Массив регекспов для параметров URL
+     * @var array
+     */
     private $filters = [];
 
+    /**
+     * Route constructor.
+     * @param string $url
+     * @param array $config
+     */
     public function __construct($url, array $config)
     {
         $methods = ['GET', 'POST', 'PUT', 'DELETE'];
@@ -22,26 +51,46 @@ class Route
         $this->filters = isset($config['filters']) ? (array)$config['filters'] : [];
     }
 
+    /**
+     * Возвращает метод роута
+     * @return string
+     */
     public function getMethod() : string
     {
         return $this->method;
     }
 
+    /**
+     * Возвращает URL роута
+     * @return string
+     */
     public function getUrl() : string
     {
         return $this->url;
     }
 
+    /**
+     * Возвращает regex фильтр для параметра URL
+     * @return mixed
+     */
     public function getRegexFilter()
     {
         return preg_replace_callback("/(:\w+)/", array(&$this, 'searchFilter'), $this->url);
     }
 
+    /**
+     * Смена параметров передаваемых в метод контроллера
+     * @param array $params
+     */
     public function setParams(array $params)
     {
         $this->params = $params;
     }
 
+    /**
+     * Обработчик роута
+     * @throws \Exception
+     */
     public function handle()
     {
         $action = explode('::', $this->controller);
@@ -63,6 +112,11 @@ class Route
         call_user_func_array(array($instance, $action[1]), $this->params);
     }
 
+    /**
+     * Возвращает фильтр для указанного параметра
+     * @param array $matches
+     * @return string
+     */
     private function searchFilter(array $matches) : string
     {
         if (isset($matches[1]) && isset($this->filters[$matches[1]])) {

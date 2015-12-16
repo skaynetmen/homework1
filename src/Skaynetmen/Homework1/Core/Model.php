@@ -5,6 +5,11 @@ namespace Skaynetmen\Homework1\Core;
 
 class Model
 {
+    /**
+     * Возвращает настройка БД из файла
+     * @return array|bool
+     * @throws \Exception
+     */
     protected function getDatabaseConfig()
     {
         $file = BASEPATH . 'config/database.ini';

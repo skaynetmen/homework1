@@ -6,8 +6,16 @@ use Skaynetmen\Homework1\Core\Model;
 
 class Feedback extends Model
 {
+    /**
+     * Формирует сообщение
+     * @param $name
+     * @param $email
+     * @param $message
+     * @return string
+     */
     public function msg($name, $email, $message)
     {
+        $name = strip_tags($name);
         $message = strip_tags($message);
 
         $text = "<h3>{$name}</h3>";
@@ -17,6 +25,13 @@ class Feedback extends Model
         return $text;
     }
 
+    /**
+     * Отправка письма
+     * @param $msg
+     * @return bool
+     * @throws \Exception
+     * @throws \phpmailerException
+     */
     public function send($msg)
     {
         $config = $this->getConfig();
@@ -53,6 +68,11 @@ class Feedback extends Model
         return false;
     }
 
+    /**
+     * Возвращает настройки smtp из файла
+     * @return array|bool
+     * @throws \Exception
+     */
     private function getConfig()
     {
         $file = BASEPATH . 'config/smtp.ini';

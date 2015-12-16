@@ -4,13 +4,24 @@ namespace Skaynetmen\Homework1\Core;
 
 class Router
 {
+    /**
+     * @var RouteCollection
+     */
     private $collection;
 
+    /**
+     * Router constructor.
+     * @param RouteCollection $collection
+     */
     public function __construct(RouteCollection $collection)
     {
         $this->collection = $collection;
     }
 
+    /**
+     * Запуск поиска роута соответсвующему запрошенному URI
+     * @return bool
+     */
     public function run()
     {
         $url = $_SERVER['REQUEST_URI'];
@@ -23,6 +34,12 @@ class Router
         return $this->match($url, $_SERVER['REQUEST_METHOD']);
     }
 
+    /**
+     * Поиск роута по URL и методу
+     * @param string $url
+     * @param string $method
+     * @return bool
+     */
     private function match($url, $method = 'GET')
     {
         foreach ($this->collection->getAll() as $route) {

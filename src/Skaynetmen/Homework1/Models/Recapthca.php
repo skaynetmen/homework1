@@ -8,8 +8,14 @@ use Skaynetmen\Homework1\Core\Model;
 
 class Recapthca extends Model
 {
+    /**
+     * @var ReCaptcha
+     */
     private $recaptcha;
 
+    /**
+     * Recapthca constructor.
+     */
     public function __construct()
     {
         $config = $this->getRecapthcaConfig();
@@ -17,6 +23,11 @@ class Recapthca extends Model
         $this->recaptcha = new ReCaptcha($config['secret']);
     }
 
+    /**
+     * Возвращает настройки recapthca из файла
+     * @return array|bool
+     * @throws \Exception
+     */
     private function getRecapthcaConfig()
     {
         $file = BASEPATH . 'config/recaptcha.ini';
@@ -36,6 +47,11 @@ class Recapthca extends Model
         return false;
     }
 
+    /**
+     * Проверку каптчи
+     * @param $googleResponse
+     * @return bool
+     */
     public function check($googleResponse)
     {
         $response = $this->recaptcha->verify($googleResponse, $_SERVER['REMOTE_ADDR']);

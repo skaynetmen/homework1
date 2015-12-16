@@ -6,8 +6,14 @@ use Skaynetmen\Homework1\Core\Model;
 
 class Works extends Model
 {
+    /**
+     * @var \PDO
+     */
     private $db;
 
+    /**
+     * Works constructor.
+     */
     public function __construct()
     {
         $config = $this->getDatabaseConfig();
@@ -17,6 +23,10 @@ class Works extends Model
         $this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
+    /**
+     * Возвращает массив работ
+     * @return array
+     */
     public function get()
     {
         $query = $this->db->query("SELECT * FROM works ORDER BY id DESC");
@@ -24,6 +34,11 @@ class Works extends Model
         return $query->fetchAll(\PDO::FETCH_OBJ);
     }
 
+    /**
+     * Добавляет новую работу
+     * @param $data
+     * @return bool
+     */
     public function add($data)
     {
         $data[':created_at'] = time();
