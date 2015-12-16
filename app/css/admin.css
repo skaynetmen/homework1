@@ -1,0 +1,29 @@
+.admin__title {
+    font-family: 'open_sanssemibold', 'Open Sans Semibold', sans-serif;
+    font-size: 1.5em;
+    margin: 0 0 15px;
+}
+
+.admin__table {
+    font-size: 0.875em;
+    margin-bottom: 20px;
+}
+
+.admin__table thead {
+    border-bottom: 1px solid #cccccc;
+}
+
+.admin__table thead > tr > td {
+    padding-bottom: 10px;
+}
+
+.admin__table tr > td {
+    padding: 8px 6px;
+}
+
+.admin__edit,
+.admin__delete {
+    color: #727070;
+}
+
+

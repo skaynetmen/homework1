@@ -1,0 +1,49 @@
+<section class="section">
+    <div class="section__header">
+        <h2 class="section__title">Админка - Редактирование пользователя #<?php echo $this->user->id; ?></h2>
+    </div>
+
+    <div class="section__body">
+        <div id="admin" class="admin">
+            <form id="formEditUser" action="/admin/user/<?php echo $this->user->id; ?>" method="post"
+                  enctype="multipart/form-data">
+                <div class="form__group">
+                    <label for="userEmail" class="form__label">Почта пользователя</label>
+
+                    <div class="form__input-section">
+                        <input type="email" id="userEmail" name="email" class="form__input"
+                               placeholder="Введите email" value="<?php echo $this->user->email; ?>"/>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label for="userName" class="form__label">Имя</label>
+
+                    <div class="form__input-section">
+                        <input type="text" id="userName" name="name" class="form__input"
+                               placeholder="Введите имя" value="<?php echo $this->user->name; ?>"/>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label for="userLastName" class="form__label">Фамилия</label>
+
+                    <div class="form__input-section">
+                        <input type="text" id="userLastName" name="lastname" class="form__input"
+                               placeholder="Введите фамилию" value="<?php echo $this->user->lastname; ?>"/>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label for="userPassword" class="form__label">Пароль</label>
+
+                    <div class="form__input-section">
+                        <input type="password" id="userPassword" name="password" class="form__input"
+                               placeholder="Введите пароль"/>
+                    </div>
+                </div>
+                <div class="form__footer">
+                    <button type="submit" class="form__btn primary">Сохранить</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>

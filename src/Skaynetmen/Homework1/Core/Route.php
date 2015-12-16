@@ -55,7 +55,7 @@ class Route
      * Возвращает метод роута
      * @return string
      */
-    public function getMethod() : string
+    public function getMethod()
     {
         return $this->method;
     }
@@ -64,7 +64,7 @@ class Route
      * Возвращает URL роута
      * @return string
      */
-    public function getUrl() : string
+    public function getUrl()
     {
         return $this->url;
     }
@@ -117,7 +117,7 @@ class Route
      * @param array $matches
      * @return string
      */
-    private function searchFilter(array $matches) : string
+    private function searchFilter(array $matches)
     {
         if (isset($matches[1]) && isset($this->filters[$matches[1]])) {
             return $this->filters[$matches[1]];

@@ -1,41 +1,46 @@
 <!--build:css css/main.min.css-->
-<link rel="stylesheet" href="bower/normalize.css/normalize.css"/>
-<link rel="stylesheet" href="css/main.css"/>
-<link rel="stylesheet" href="css/sprite.css"/>
-<link rel="stylesheet" href="css/fonts.css"/>
+<link rel="stylesheet" href="/bower/normalize.css/normalize.css"/>
+<link rel="stylesheet" href="/css/main.css"/>
+<link rel="stylesheet" href="/css/sprite.css"/>
+<link rel="stylesheet" href="/css/fonts.css"/>
 <!--endbuild-->
 
 <?php $currentPage = \Skaynetmen\Homework1\Core\Url::get(); ?>
 
 <?php if ($currentPage == '/works'): ?>
     <!--build:css css/works.min.css-->
-    <link rel="stylesheet" href="css/works.css"/>
+    <link rel="stylesheet" href="/css/works.css"/>
     <!--endbuild-->
 <?php endif; ?>
 <?php if ($currentPage == '/feedback'): ?>
     <!--build:css css/feedback.min.css-->
-    <link rel="stylesheet" href="css/feedback.css"/>
+    <link rel="stylesheet" href="/css/feedback.css"/>
     <!--endbuild-->
 <?php endif; ?>
 <?php if ($currentPage == '/auth'): ?>
     <!--build:css css/auth.min.css-->
-    <link rel="stylesheet" href="css/auth.css"/>
+    <link rel="stylesheet" href="/css/auth.css"/>
+    <!--endbuild-->
+<?php endif; ?>
+<?php if ($currentPage == '/admin'): ?>
+    <!--build:css css/admin.min.css-->
+    <link rel="stylesheet" href="/css/admin.css"/>
     <!--endbuild-->
 <?php endif; ?>
 
 <!--build:css css/ie.min.css-->
 <!--[if lt IE 9]>
-<link rel="stylesheet" href="css/ie.css"/>
+<link rel="stylesheet" href="/css/ie.css"/>
 <![endif]-->
 <!--endbuild-->
-<script src="js/modernizr.js"></script>
+<script src="/js/modernizr.js"></script>
 <!--build:js js/html5shiv.min.js-->
 <!--[if lt IE 9]>
-<script src="bower/html5shiv/dist/html5shiv.min.js"></script>
+<script src="/bower/html5shiv/dist/html5shiv.min.js"></script>
 <![endif]-->
 <!--endbuild-->
 <!--build:js js/respond.min.js-->
 <!--[if lt IE 9]>
-<script src="bower/respond/dest/respond.min.js"></script>
+<script src="/bower/respond/dest/respond.min.js"></script>
 <![endif]-->
 <!--endbuild-->

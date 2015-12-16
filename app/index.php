@@ -75,6 +75,23 @@ try {
         'method' => 'GET'
     )));
 
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::indexAction',
+        'method' => 'GET'
+    )));
+
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin/work/:id', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::editWorkAction',
+        'method' => 'GET',
+        'filters' => [':id' => '(\d+)']
+    )));
+
+    $collection->add(new \Skaynetmen\Homework1\Core\Route('/admin/user/:id', array(
+        'controller' => '\Skaynetmen\Homework1\Controllers\AdminController::editUserAction',
+        'method' => 'GET',
+        'filters' => [':id' => '(\d+)']
+    )));
+
     $router = new \Skaynetmen\Homework1\Core\Router($collection);
 
     if (!$router->run()) {

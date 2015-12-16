@@ -1,0 +1,59 @@
+<section class="section">
+    <div class="section__header">
+        <h2 class="section__title">Админка - Редактирование работы #<?php echo $this->work->id; ?></h2>
+    </div>
+
+    <div class="section__body">
+        <div id="admin" class="admin">
+            <form id="formEditWork" action="/admin/work/<?php echo $this->work->id; ?>" method="post"
+                  enctype="multipart/form-data">
+                <div class="form__group">
+                    <label for="projectName" class="form__label">Название проекта</label>
+
+                    <div class="form__input-section">
+                        <input type="text" id="projectName" name="name" class="form__input"
+                               placeholder="Введите название" value="<?php echo $this->work->title; ?>"/>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label for="projectImg" class="form__label">Картинка проекта</label>
+
+                    <div class="form__input-section">
+                        <input type="file" id="projectImg" name="files[]" class="hidden"/>
+
+                        <div class="form__input-group">
+                            <input type="text" id="fakeProjectImg" name="img" class="form__input"
+                                   placeholder="Загрузите изображение" value="<?php echo $this->work->image; ?>"
+                                   readonly/>
+                                <span class="form__input-group-btn">
+                                    <button id="fakeInputFile" type="button" class="form__btn"><i
+                                            class="icon ico-skype"></i></button>
+                                </span>
+                        </div>
+                    </div>
+                    <div id="imgThumbnail" class="files"></div>
+                </div>
+                <div class="form__group">
+                    <label for="projectUrl" class="form__label">URL проекта</label>
+
+                    <div class="form__input-section">
+                        <input type="text" id="projectUrl" name="url" class="form__input"
+                               placeholder="Добавьте ссылку" value="<?php echo $this->work->link; ?>"/>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label for="projectDesc" class="form__label">Описание</label>
+
+                    <div class="form__input-section">
+                            <textarea id="projectDesc" name="desc" class="form__input"
+                                      placeholder="Пара слов"><?php echo $this->work->description; ?></textarea>
+                    </div>
+                </div>
+                <div class="form__footer">
+                    <button type="submit" class="form__btn primary">Сохранить</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
