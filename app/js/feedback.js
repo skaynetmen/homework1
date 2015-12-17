@@ -36,7 +36,7 @@ window.APP.feedback = (function ($) {
                     messages: {
                         required: 'Пожалуйства введите сообщение.',
                     }
-                },
+                }/*,
                 {
                     name: 'code',
                     rules: {
@@ -46,7 +46,7 @@ window.APP.feedback = (function ($) {
                         required: 'Пожалуйства введите код с картинки.',
                     },
                     errorAppend: '.form__input-section'
-                }
+                 }*/
             ],
             success = function (e) {
                 e.preventDefault ? e.preventDefault() : (e.returnValue = false);

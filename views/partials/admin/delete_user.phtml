@@ -5,7 +5,8 @@
 
     <div class="section__body">
         <div id="admin" class="admin">
-            <form id="formDeleteUser" action="/admin/user/delete/<?php echo $this->user->id; ?>" method="post">
+            <div id="deleteMsg"></div>
+            <form id="formDelete" action="/admin/user/delete/<?php echo $this->user->id; ?>" method="post">
                 <div class="form__group">
                     <p><?php printf("Удалить пользователя <%s> %s %s?", $this->user->email, $this->user->name,
                             $this->user->lastname); ?></p>

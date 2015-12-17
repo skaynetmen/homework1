@@ -5,7 +5,8 @@
 
     <div class="section__body">
         <div id="admin" class="admin">
-            <form id="formEditUser" action="/admin/user/<?php echo $this->user->id; ?>" method="post">
+            <div id="userMsg"></div>
+            <form id="formUser2" action="/admin/user/<?php echo $this->user->id; ?>" method="post">
                 <div class="form__group">
                     <label for="userEmail" class="form__label">Почта пользователя</label>
 
