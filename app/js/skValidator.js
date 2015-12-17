@@ -230,12 +230,13 @@
 
     /**
      * Валидация формы
+     * @param that
      * @param options
-     * @returns {jQuery}
+     * @constructor
      */
-    $.fn.skValidator = function (options) {
+    function Validator(that, options) {
         id = 'skValidator' + Math.floor((Math.random() * 100) + 1);
-        form = this;
+        form = $(that);
         settings = $.extend(settings, options);
 
         //добавляем в глобальный массив поля из переданных настроек
@@ -287,7 +288,19 @@
                 }
             }
         });
+    }
 
-        return this;
+    /**
+     * Инициализируем расширение для jquery
+     * @param options
+     * @returns {*}
+     */
+    $.fn.skValidator = function (options) {
+        return this.each(function () {
+            if (!$.data(this, 'plugin_skValidator')) {
+                $.data(this, 'plugin_skValidator',
+                    new Validator(this, options));
+            }
+        });
     };
 })(jQuery);
