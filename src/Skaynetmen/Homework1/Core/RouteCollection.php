@@ -18,7 +18,7 @@ class RouteCollection extends \SplObjectStorage
      * Возвращаем массив всех роутов из хранилища
      * @return mixed
      */
-    public function getAll() : array
+    public function getAll()
     {
         $collection = [];
 
