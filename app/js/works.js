@@ -2,13 +2,14 @@ window.APP.works = (function ($) {
     'use strict';
     var
         $form = $('#formAddWork'),
-        $modalMsg = $('#modalMsg');
+        $modalMsg = $('#modalMsg'),
+        $modalWindow = $('.modal');
 
     var addWork = function () {
         $('#addWork').on('click', function (event) {
             event.preventDefault ? event.preventDefault() : (event.returnValue = false);
 
-            $('.modal').skModal({
+            $modalWindow.skModal({
                 closeClass: 'modal__close',
                 onOpen: function () {
                     placeholder();
@@ -104,6 +105,13 @@ window.APP.works = (function ($) {
                         if (!data.error) {
                             $modalMsg.html('<div class="alert success"><button class="alert__close">&times;</button><h4 class="alert__title">Выполнено!</h4><p>' + data.msg + '</p></div>');
                             $that[0].reset();
+
+                            $('#imgThumbnail').html('');
+                            $modalWindow.find('.modal__close').trigger('click');
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 3000);
+
                         } else {
                             $modalMsg.html('<div class="alert error"><button class="alert__close">&times;</button><h4 class="alert__title">Ошибка!</h4><p>' + data.msg + '</p></div>');
                         }
