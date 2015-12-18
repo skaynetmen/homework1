@@ -9,8 +9,8 @@
 
 <?php $currentPage = \Skaynetmen\Homework1\Core\Url::get(); ?>
 
-<?php if ($currentPage == '/works' || $currentPage == '/feedback' || !strncmp($currentPage, '/admin',
-        strlen('/admin'))
+<?php if ($currentPage == '/works' || $currentPage == '/feedback' || $currentPage == '/auth'
+    || !strncmp($currentPage, '/admin', strlen('/admin'))
 ): ?>
     <!--build:js js/vendor.ie.min.js-->
     <!--[if lt IE 9]>
