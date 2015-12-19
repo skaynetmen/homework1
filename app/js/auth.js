@@ -1,8 +1,12 @@
 window.APP.auth = (function ($) {
     'use strict';
+
     var $form = $('#authForm'),
         $authMsg = $('#authMsg');
 
+    /**
+     * Отправка формы авторизации
+     */
     var submit = function () {
         var fields = [
                 {
@@ -25,9 +29,13 @@ window.APP.auth = (function ($) {
                     messages: {
                         required: 'Пожалуйства введите Ваш пароль.',
                         minLength: 'Пароль не может состоять меньше чем из 6 символов.'
-                    },
+                    }
                 }
             ],
+            /**
+             * Отправка формы через ajax
+             * @param e
+             */
             success = function (e) {
                 e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
@@ -56,7 +64,7 @@ window.APP.auth = (function ($) {
                 });
             };
 
-
+        //вешаем на форму валидатор
         $form.skValidator({
             fields: fields,
             success: success,
@@ -64,6 +72,9 @@ window.APP.auth = (function ($) {
         });
     };
 
+    /**
+     * Для ишака активируем плагин placeholder
+     */
     var placeholder = function () {
         //Modernizr.input.placeholder
         if ($('html').hasClass('lt-ie9')) {
@@ -71,6 +82,7 @@ window.APP.auth = (function ($) {
         }
     };
 
+    //публичные методы
     return {
         init: function () {
             placeholder();

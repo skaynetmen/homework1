@@ -5,7 +5,11 @@ var APP = (function ($) {
         fixedMenu: false
     };
 
+    /**
+     * Показ меню сайта для планшетов и мобильников
+     */
     var mobileMenu = function () {
+        //добавляем подложку на страницу
         (function () {
             $('<div/>', {'id': 'menuOverlay', 'class': 'menuOverlay'})
                 .appendTo('body');
@@ -16,11 +20,15 @@ var APP = (function ($) {
             mobileMenuBtn = $('#mobileMenu'),
             menuOverlay = $('#menuOverlay');
 
+        //наверное лучше это вынести в цсс стили и убрать отсюда
         if (options.fixedMenu) {
-            $("<style>.showMenu {position: fixed;}</style>")
+            $("<style/>", {
+                'text': '.showMenu {position: fixed;}'
+            })
                 .appendTo("head");
         }
 
+        //вешаем события на кнопку вызова меню
         mobileMenuBtn.on('click', function () {
             menu.toggleClass('showMenu');
 
@@ -31,12 +39,17 @@ var APP = (function ($) {
             }
         });
 
+        //по клику за областью меню, скрываем его
         menuOverlay.on('click', function () {
             menu.removeClass('showMenu');
             menuOverlay.fadeOut();
         })
     };
 
+    /**
+     * Фиксируем хедер при прокрутке,
+     * по-умолчанию эта опция отключена
+     */
     var fixedMenu = function () {
         var
             win = $(window),
@@ -53,19 +66,10 @@ var APP = (function ($) {
         });
     };
 
-    var changeOptions = function (param) {
-        if (typeof param == 'object') {
-            if (param.fixedMenu === true) {
-                options.fixedMenu = true;
-            }
-        }
-    };
-
+    //публичные методы
     return {
         init: function (param) {
-            if (param) {
-                changeOptions(param);
-            }
+            options = $.extend(options, param);
 
             mobileMenu();
 
