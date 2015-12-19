@@ -14,7 +14,7 @@
 
 .auth__title {
     display: block;
-    margin-left: 22px;
+    margin: 0 0 0 22px;
 
     font-size: 0.75em;
     line-height: 2;
