@@ -26,8 +26,16 @@
         fields = [],
         errors = [];
 
+    /**
+     * Формирует имя селектора поля ошибки для jquery
+     * @param errorClass
+     * @param subClass
+     * @param id
+     * @returns {string}
+     */
     var makeMsgSelector = function (errorClass, subClass, id) {
         var msgSelector = '.' + errorClass;
+
         if (subClass && $.trim(subClass) !== '') {
             msgSelector += '.' + subClass;
         }
@@ -116,7 +124,9 @@
             });
 
             if (appendChanged) {
-                field.that.closest(field.errorAppend).append($errorElement)
+                field.that
+                    .closest(field.errorAppend)
+                    .append($errorElement)
             } else {
                 field.that.after($errorElement);
             }

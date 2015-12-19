@@ -1,8 +1,12 @@
 window.APP.feedback = (function ($) {
     'use strict';
+
     var $form = $('#feedbackForm'),
         $feedbackMsg = $('#feedbackMsg');
 
+    /**
+     * Отправка формы обратной связи
+     */
     var submit = function () {
         var fields = [
                 {
@@ -34,7 +38,7 @@ window.APP.feedback = (function ($) {
                         required: true
                     },
                     messages: {
-                        required: 'Пожалуйства введите сообщение.',
+                        required: 'Пожалуйства введите сообщение.'
                     }
                 }/*,
                 {
@@ -43,11 +47,15 @@ window.APP.feedback = (function ($) {
                         required: true
                     },
                     messages: {
-                        required: 'Пожалуйства введите код с картинки.',
+                        required: 'Пожалуйства введите код с картинки.'
                     },
                     errorAppend: '.form__input-section'
                  }*/
             ],
+            /**
+             * Отправка формы через ajax
+             * @param e
+             */
             success = function (e) {
                 e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
@@ -72,7 +80,7 @@ window.APP.feedback = (function ($) {
                 });
             };
 
-
+        //вешаем на форму валидатор
         $form.skValidator({
             fields: fields,
             success: success,
@@ -80,6 +88,9 @@ window.APP.feedback = (function ($) {
         });
     };
 
+    /**
+     * Для ишака активируем плагин placeholder
+     */
     var placeholder = function () {
         //Modernizr.input.placeholder
         if ($('html').hasClass('lt-ie9')) {
@@ -87,6 +98,9 @@ window.APP.feedback = (function ($) {
         }
     };
 
+    /**
+     * По нажатию на крестик в алертах, закрываем его
+     */
     var closeAlert = function () {
         $feedbackMsg.on('click', '.alert__close', function () {
             $(this)
@@ -95,6 +109,7 @@ window.APP.feedback = (function ($) {
         });
     };
 
+    //публичные методы
     return {
         init: function () {
             placeholder();
