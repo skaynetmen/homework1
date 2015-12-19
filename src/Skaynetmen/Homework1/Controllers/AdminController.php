@@ -57,7 +57,7 @@ class AdminController extends Controller
             $view->work = $worksModel->getById($id);
             $view->render();
         } else {
-            //show 404
+            $this->show404();
         }
     }
 
@@ -79,7 +79,7 @@ class AdminController extends Controller
             $view->user = $userModel->getById($id);
             $view->render();
         } else {
-            //show 404
+            $this->show404();
         }
     }
 
@@ -126,6 +126,7 @@ class AdminController extends Controller
             ];
         }
 
+        header('Content-Type: application/json');
         echo json_encode($json);
     }
 
@@ -185,6 +186,7 @@ class AdminController extends Controller
             ];
         }
 
+        header('Content-Type: application/json');
         echo json_encode($json);
     }
 
@@ -232,9 +234,15 @@ class AdminController extends Controller
             ];
         }
 
+        header('Content-Type: application/json');
         echo json_encode($json);
     }
 
+    /**
+     * Страничка подтверждения удаления работы
+     * @param int $id
+     * @throws \Exception
+     */
     public function confirmDeleteWorkAction($id)
     {
         $worksModel = new Works();
@@ -248,10 +256,15 @@ class AdminController extends Controller
             $view->work = $worksModel->getById($id);
             $view->render();
         } else {
-            //show 404
+            $this->show404();
         }
     }
 
+    /**
+     * Страничка подтверждения удаления пользователя
+     * @param int $id
+     * @throws \Exception
+     */
     public function confirmDeleteUserAction($id)
     {
         $userModel = new Users();
@@ -265,10 +278,14 @@ class AdminController extends Controller
             $view->user = $userModel->getById($id);
             $view->render();
         } else {
-            //show 404
+            $this->show404();
         }
     }
 
+    /**
+     * Удаление работы
+     * @param int $id
+     */
     public function deleteWorkAction($id)
     {
         $worksModel = new Works();
@@ -285,9 +302,14 @@ class AdminController extends Controller
             ];
         }
 
+        header('Content-Type: application/json');
         echo json_encode($json);
     }
 
+    /**
+     * Удаление пользователя
+     * @param int $id
+     */
     public function deleteUserAction($id)
     {
         $userModel = new Users();
@@ -304,6 +326,7 @@ class AdminController extends Controller
             ];
         }
 
+        header('Content-Type: application/json');
         echo json_encode($json);
     }
 }

@@ -15,4 +15,22 @@ class Controller
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
     }
+
+    /**
+     * Выводит 404 ошибку
+     */
+    protected function show404()
+    {
+        header($_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+        echo '404 Not Found';
+    }
+
+    /**
+     * Выводит 403 ошибку
+     */
+    protected function show403()
+    {
+        header($_SERVER["SERVER_PROTOCOL"] . " 403 Unauthorized");
+        echo '403 Forbidden';
+    }
 }

@@ -47,42 +47,47 @@ class MainController extends Controller
      */
     public function addWorkAction()
     {
-        $request = new Request();
+        if (Auth::loggedIn()) {
+            $request = new Request();
 
-        if ($request->post('name') && !empty($request->post('name'))
-            && $request->post('img') && !empty($request->post('img'))
-            && $request->post('url') && !empty($request->post('url'))
-            && $request->post('desc') && !empty($request->post('desc'))
-        ) {
-            //на всякий случай почистим поля от html/php тегов
-            $data = [
-                ':title' => strip_tags($request->post('name')),
-                ':image' => strip_tags($_POST['img']),
-                ':link' => strip_tags($request->post('url')),
-                ':description' => strip_tags($request->post('desc'))
-            ];
-
-            $worksModel = new Works();
-
-            if ($worksModel->add($data)) {
-                $json = [
-                    'error' => false,
-                    'msg' => 'Работа успешно добавлена!'
+            if ($request->post('name') && !empty($request->post('name'))
+                && $request->post('img') && !empty($request->post('img'))
+                && $request->post('url') && !empty($request->post('url'))
+                && $request->post('desc') && !empty($request->post('desc'))
+            ) {
+                //на всякий случай почистим поля от html/php тегов
+                $data = [
+                    ':title' => strip_tags($request->post('name')),
+                    ':image' => strip_tags($_POST['img']),
+                    ':link' => strip_tags($request->post('url')),
+                    ':description' => strip_tags($request->post('desc'))
                 ];
+
+                $worksModel = new Works();
+
+                if ($worksModel->add($data)) {
+                    $json = [
+                        'error' => false,
+                        'msg' => 'Работа успешно добавлена!'
+                    ];
+                } else {
+                    $json = [
+                        'error' => true,
+                        'msg' => 'Не удалось добавить работу!'
+                    ];
+                }
             } else {
                 $json = [
                     'error' => true,
-                    'msg' => 'Не удалось добавить работу!'
+                    'msg' => 'Заполните все поля!'
                 ];
             }
-        } else {
-            $json = [
-                'error' => true,
-                'msg' => 'Заполните все поля!'
-            ];
-        }
 
-        echo json_encode($json);
+            header('Content-Type: application/json');
+            echo json_encode($json);
+        } else {
+            $this->show403();
+        }
     }
 
     /**
@@ -141,6 +146,7 @@ class MainController extends Controller
             ];
         }
 
+        header('Content-Type: application/json');
         echo json_encode($json);
     }
 
@@ -202,6 +208,7 @@ class MainController extends Controller
             ];
         }
 
+        header('Content-Type: application/json');
         echo json_encode($json);
     }
 
@@ -210,14 +217,18 @@ class MainController extends Controller
      */
     public function uploadAction()
     {
-        $config = [
-            'script_url' => './works/upload',
-            'upload_dir' => BASEPATH . 'app/uploads/',
-            'upload_url' => './uploads/',
-            'delete_type' => 'POST'
-        ];
+        if (Auth::loggedIn()) {
+            $config = [
+                'script_url' => './works/upload',
+                'upload_dir' => BASEPATH . 'app/uploads/',
+                'upload_url' => './uploads/',
+                'delete_type' => 'POST'
+            ];
 
-        new JqueryFileUploadHandler($config);
+            $handler = new JqueryFileUploadHandler($config);
+        } else {
+            $this->show403();
+        }
     }
 
     /**
