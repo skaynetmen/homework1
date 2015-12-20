@@ -2,7 +2,8 @@ window.APP.feedback = (function ($) {
     'use strict';
 
     var $form = $('#feedbackForm'),
-        $feedbackMsg = $('#feedbackMsg');
+        $feedbackMsg = $('#feedbackMsg'),
+        errorMsgClass = 'tooltip';
 
     /**
      * Отправка формы обратной связи
@@ -84,7 +85,7 @@ window.APP.feedback = (function ($) {
         $form.skValidator({
             fields: fields,
             success: success,
-            errorMsgClass: 'tooltip'
+            errorMsgClass: errorMsgClass
         });
     };
 
@@ -109,12 +110,29 @@ window.APP.feedback = (function ($) {
         });
     };
 
+    /**
+     * Удаление тултипов и состояния ошибки у полей,
+     * при очистке формы
+     */
+    var clearForm = function () {
+        $('#clearFeedbackForm').on('click', function () {
+            $form.find('.form__input').each(function () {
+                var $that = $(this);
+
+                $that.removeClass('error');
+
+                $('.' + errorMsgClass).remove();
+            });
+        });
+    };
+
     //публичные методы
     return {
         init: function () {
             placeholder();
             submit();
             closeAlert();
+            clearForm();
         }
     };
 })(window.jQuery);
